@@ -26,45 +26,57 @@ export default function RootLayout({
 
         {/* HEADER */}
 
-          <header>
+          <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav>
+            <nav className="max-w-7xl mx-auto px-6 py-4">
 
-              <div>
+              <div className="flex items-center justify-between">
 
                 {/* Logo */}
 
                 <Link href="/">
-                  <Image src="/header-logo.svg" alt="CANN Design logo" width={60} height={60}></Image>
+                  <Image src="/header-logo.svg" alt="CANN Design logo" width={70} height={70} className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"></Image>
                 </Link>
 
                 {/* Nav Links */}
 
-                <ul>
+                <ul className="flex gap-6 md:gap-8">
 
-                  {/*<Link>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/projects">
+                      Projects
+                    </Link>
+                  </li>
 
-                  </Link>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/About">
+                      About
+                    </Link>
+                  </li>
 
-                  <Link>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/Collaborate">
+                      Collaborate
+                    </Link>
+                  </li>
 
-                  </Link>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/Rent">
+                      Rent
+                    </Link>
+                  </li>
 
-                  <Link>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/Teach">
+                      Teach
+                    </Link>
+                  </li>
 
-                  </Link>
-
-                  <Link>
-
-                  </Link>
-
-                  <Link>
-
-                  </Link>
-
-                  <Link>
-
-                  </Link>*/}
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/Contact">
+                      Contact
+                    </Link>
+                  </li>
 
                 </ul>
 
@@ -73,7 +85,8 @@ export default function RootLayout({
             </nav>
 
           </header>
-
+          {/* SPACER - prevents content from hiding under fixed header */}
+          <div className="h-16"></div>
 
 
         {/* MAIN CONTENT - Where each page goes */}
