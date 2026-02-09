@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -13,9 +15,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
 
     <html lang="en">
@@ -32,8 +34,8 @@ export default function RootLayout({
 
                 {/* Logo */}
 
-                <Link href="">
-
+                <Link href="/">
+                  <Image src="/header-logo.svg" alt="CANN Design logo" width={60} height={60}></Image>
                 </Link>
 
                 {/* Nav Links */}
@@ -100,9 +102,9 @@ export default function RootLayout({
 
                 </a>
 
-                <Link>
+                {/*<Link>
 
-                </Link>
+                </Link>*/}
 
               </div>
 
