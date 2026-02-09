@@ -17,12 +17,104 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en">
-      <body
-        className={dmSans.className}
-      >
-        {children}
+
+      <body className={dmSans.className}>
+
+        {/* HEADER */}
+
+          <header>
+
+            <nav>
+
+              <div>
+
+                {/* Logo */}
+
+                <Link href="">
+
+                </Link>
+
+                {/* Nav Links */}
+
+                <ul>
+
+                  {/*<Link>
+
+                  </Link>
+
+                  <Link>
+
+                  </Link>
+
+                  <Link>
+
+                  </Link>
+
+                  <Link>
+
+                  </Link>
+
+                  <Link>
+
+                  </Link>
+
+                  <Link>
+
+                  </Link>*/}
+
+                </ul>
+
+              </div>
+
+            </nav>
+
+          </header>
+
+
+
+        {/* MAIN CONTENT - Where each page goes */}
+
+        <main>
+
+          {children}
+
+        </main>
+
+        {/* FOOTER */}
+
+        <footer>
+
+          <div>
+
+            <div>
+
+              <p>
+
+              </p>
+
+              <div>
+
+                <a>
+
+                </a>
+
+                <Link>
+
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+          
+        </footer>
+
       </body>
+
     </html>
+
   );
 }
