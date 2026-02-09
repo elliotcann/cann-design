@@ -7,7 +7,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "CANN Deisgn",
+  title: "CANN Design",
   description: "CANN Design business and portfolio website",
 };
 
