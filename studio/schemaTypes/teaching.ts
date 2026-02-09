@@ -14,7 +14,7 @@ export default {
         {
             name: 'slug',
             title: 'Slug',
-            tpye: 'slug',
+            type: 'slug',
             options: {
                 source: 'title',
                 maxLength: 96,
