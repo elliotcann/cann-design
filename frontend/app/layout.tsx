@@ -49,31 +49,31 @@ export default function RootLayout({
                   </li>
 
                   <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/About">
+                    <Link href="/about">
                       About
                     </Link>
                   </li>
 
                   <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/Collaborate">
+                    <Link href="/collaborate">
                       Collaborate
                     </Link>
                   </li>
 
                   <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/Rent">
+                    <Link href="/rent">
                       Rent
                     </Link>
                   </li>
 
                   <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/Teach">
+                    <Link href="/teach">
                       Teach
                     </Link>
                   </li>
 
                   <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/Contact">
+                    <Link href="/contact">
                       Contact
                     </Link>
                   </li>
@@ -86,7 +86,7 @@ export default function RootLayout({
 
           </header>
           {/* SPACER - prevents content from hiding under fixed header */}
-          <div className="h-16"></div>
+          <div className="h-24"></div>
 
 
         {/* MAIN CONTENT - Where each page goes */}
@@ -101,25 +101,21 @@ export default function RootLayout({
 
         <footer>
 
-          <div>
+          <div className="bg-black text-white px-6 py-4">
 
-            <div>
+            <div className="flex align-center justify-between">
 
               <p>
-
+                CANN Design {new Date().getFullYear()} &copy;
               </p>
 
-              <div>
-
-                <a>
-
-                </a>
-
-                {/*<Link>
-
-                </Link>*/}
-
-              </div>
+              <a href="mailto:hello@cann.design" target="_blank" className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                  hello@cann.design
+              </a>
+                
+              <Link href="/privacy" className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                  Privacy Policy
+              </Link>
 
             </div>
 
