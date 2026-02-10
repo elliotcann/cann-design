@@ -101,7 +101,7 @@ export default function RootLayout({
 
         <footer>
 
-          <div className="bg-black text-white px-6 py-4">
+          <div className="font-bold text-sm bg-black text-white px-6 py-4">
 
             <div className="flex align-center justify-between">
 
