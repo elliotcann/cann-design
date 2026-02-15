@@ -31,7 +31,7 @@ export default function RootLayout({
 
             <nav className="max-w-7xl mx-auto px-6 py-4">
 
-              <div className="flex items-center">
+              <div className="flex items-center justify-between">
 
                 {/* Logo */}
                 <Link href="/">
@@ -80,8 +80,9 @@ export default function RootLayout({
 
                 </ul>
 
-                <button className="md:hidden bg-black text-white p-3 rounded-full" aria-label="Toggle menu">
-                    <Menu className="w-5 h-5" />
+                {/*Mobile Nav Button */}
+                <button className="md:hidden bg-black text-white p-2 rounded-full" aria-label="Toggle menu">
+                    <Menu className="w-6 h-6" />
                 </button>
 
               </div>
