@@ -15,91 +15,75 @@ export default function Header() {
 
                 <div className="flex items-center justify-between">
 
-                {/* Logo */}
-                <Link href="/">
-                    <Image src="/header-logo.svg" alt="CANN Design logo" width={70} height={70} className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"></Image>
-                </Link>
-
-                {/* Mobile Nav Links */}
-
-                <ul className="hidden md:flex w-full justify-center gap-6 lg:gap-8">
-
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/projects">
-                        Projects
+                    {/* Logo */}
+                    <Link href="/">
+                        <Image src="/header-logo.svg" alt="CANN Design logo" width={70} height={70} className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"></Image>
                     </Link>
-                    </li>
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/about">
-                        About
-                    </Link>
-                    </li>
+                    {/* Mobile Nav Links */}
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/collaborate">
-                        Collaborate
-                    </Link>
-                    </li>
-
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/rent">
-                        Rent
-                    </Link>
-                    </li>
-
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/teach">
-                        Teach
-                    </Link>
-                    </li>
-
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/contact">
-                        Contact
-                    </Link>
-                    </li>
-
-                </ul>
-
-                {/* Mobile Nav Button */}
-                <button className="md:hidden bg-black text-white p-2 rounded-full" aria-label="Toggle menu">
-                    <Menu className="w-6 h-6" />
-                </button>
-
-                {/* Mobile Nav Menu */}
-                <div className="md:hidden mt-4 hidden" id="mobile-menu">
-                    <ul className="flex flex-col gap-3">
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                        <Link href="/projects">Projects</Link>
-                    </li>
+                    <ul className="hidden md:flex w-full justify-center gap-6 lg:gap-8">
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                            <Link href="/projects">
+                                Projects
+                            </Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                            <Link href="/about">
+                                About
+                            </Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                            <Link href="/collaborate">
+                                Collaborate
+                            </Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                            <Link href="/rent">
+                                Rent
+                            </Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                            <Link href="/teach">
+                                Teach
+                            </Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                            <Link href="/contact">
+                                Contact
+                            </Link>
+                        </li>
                     </ul>
-                    <ul className="flex flex-col gap-3">
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                        <Link href="/about">About</Link>
-                    </li>
-                    </ul>
-                    <ul className="flex flex-col gap-3">
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                        <Link href="/collaborate">Collaborate</Link>
-                    </li>
-                    </ul>
-                    <ul className="flex flex-col gap-3">
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                        <Link href="/rent">Rent</Link>
-                    </li>
-                    </ul>
-                    <ul className="flex flex-col gap-3">
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                        <Link href="/teach">Teach</Link>
-                    </li>
-                    </ul>
-                    <ul className="flex flex-col gap-3">
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                        <Link href="/contact">Contact</Link>
-                    </li>
-                    </ul>
-                </div>
+
+                    {/* Mobile Nav Button */}
+                    <button className="md:hidden bg-black text-white p-2 rounded-full" aria-label="Toggle menu">
+                        <Menu className="w-6 h-6" />
+                    </button>
+
+                    {/* Mobile Nav Menu */}
+                    <div className="md:hidden mt-4 hidden" id="mobile-menu">
+                        <ul className="flex flex-col gap-3">
+                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href="/projects">Projects</Link>
+                            </li>
+                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href="/about">About</Link>
+                            </li>
+                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href="/collaborate">Collaborate</Link>
+                            </li>
+                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href="/rent">Rent</Link>
+                            </li>
+                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href="/teach">Teach</Link>
+                            </li>
+                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href="/contact">Contact</Link>
+                            </li>
+                        </ul>
+                        
+                    </div>
 
                 </div>
 
