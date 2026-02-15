@@ -39,49 +39,46 @@ export default function RootLayout({
                 </Link>
 
                 {/* Nav Links */}
-                <div className="flex w-full justify-center">
 
-                  <ul className="flex gap-6 md:gap-8">
+                <ul className="flex w-full justify-center gap-6 md:gap-8">
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                      <Link href="/projects">
-                        Projects
-                      </Link>
-                    </li>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/projects">
+                      Projects
+                    </Link>
+                  </li>
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                      <Link href="/about">
-                        About
-                      </Link>
-                    </li>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/about">
+                      About
+                    </Link>
+                  </li>
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                      <Link href="/collaborate">
-                        Collaborate
-                      </Link>
-                    </li>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/collaborate">
+                      Collaborate
+                    </Link>
+                  </li>
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                      <Link href="/rent">
-                        Rent
-                      </Link>
-                    </li>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/rent">
+                      Rent
+                    </Link>
+                  </li>
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                      <Link href="/teach">
-                        Teach
-                      </Link>
-                    </li>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/teach">
+                      Teach
+                    </Link>
+                  </li>
 
-                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                      <Link href="/contact">
-                        Contact
-                      </Link>
-                    </li>
+                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                    <Link href="/contact">
+                      Contact
+                    </Link>
+                  </li>
 
-                  </ul>
-
-                </div>
+                </ul>
 
               </div>
 
