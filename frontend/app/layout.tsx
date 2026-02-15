@@ -80,10 +80,44 @@ export default function RootLayout({
 
                 </ul>
 
-                {/*Mobile Nav Button */}
+                {/* Mobile Nav Button */}
                 <button className="md:hidden bg-black text-white p-2 rounded-full" aria-label="Toggle menu">
                     <Menu className="w-6 h-6" />
                 </button>
+
+                {/* Mobile Nav Menu */}
+                <div className="md:hidden mt-4 hidden" id="mobile-menu">
+                  <ul className="flex flex-col gap-3">
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                      <Link href="/projects">Projects</Link>
+                    </li>
+                  </ul>
+                  <ul className="flex flex-col gap-3">
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                      <Link href="/about">About</Link>
+                    </li>
+                  </ul>
+                  <ul className="flex flex-col gap-3">
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                      <Link href="/collaborate">Collaborate</Link>
+                    </li>
+                  </ul>
+                    <ul className="flex flex-col gap-3">
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                      <Link href="/rent">Rent</Link>
+                    </li>
+                  </ul>
+                    <ul className="flex flex-col gap-3">
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                      <Link href="/teach">Teach</Link>
+                    </li>
+                  </ul>
+                    <ul className="flex flex-col gap-3">
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                      <Link href="/contact">Contact</Link>
+                    </li>
+                  </ul>
+                </div>
 
               </div>
 
@@ -117,7 +151,7 @@ export default function RootLayout({
               <a href="mailto:hello@cann.design" target="_blank" className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
                   hello@cann.design
               </a>
-                
+                  
               <Link href="/privacy" className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
                   Privacy Policy
               </Link>
