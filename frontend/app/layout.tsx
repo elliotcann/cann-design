@@ -38,9 +38,9 @@ export default function RootLayout({
                   <Image src="/header-logo.svg" alt="CANN Design logo" width={70} height={70} className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"></Image>
                 </Link>
 
-                {/* Nav Links */}
+                {/* Mobile Nav Links */}
 
-                <ul className="flex w-full justify-center gap-6 md:gap-8">
+                <ul className="hidden md:flex w-full justify-center gap-6 lg:gap-8">
 
                   <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
                     <Link href="/projects">
@@ -79,6 +79,10 @@ export default function RootLayout({
                   </li>
 
                 </ul>
+
+                <button className="md:hidden bg-black text-white p-3 rounded-full" aria-label="Toggle menu">
+                    <Menu className="w-5 h-5" />
+                </button>
 
               </div>
 
