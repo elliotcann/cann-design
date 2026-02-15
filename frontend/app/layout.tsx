@@ -26,6 +26,8 @@ export default function RootLayout({
 
         {/* HEADER */}
 
+        <Header />
+
           
         {/* SPACER - prevents content from hiding under fixed header */}
         <div className="h-24"></div>
