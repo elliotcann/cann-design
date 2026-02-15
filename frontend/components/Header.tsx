@@ -25,10 +25,16 @@ export default function Header() {
 
                     {/* Logo */}
                     <Link href="/">
-                        <Image src="/header-logo.svg" alt="CANN Design logo" width={70} height={70} className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"></Image>
+                        <Image 
+                            src="/header-logo.svg" 
+                            alt="CANN Design logo" 
+                            width={70} 
+                            height={70} 
+                            className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"
+                        />
                     </Link>
 
-                    {/* Mobile Nav Links */}
+                    {/* Desktop Nav Links - hidden on mobile */}
 
                     <ul className="hidden md:flex w-full justify-center gap-6 lg:gap-8">
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
@@ -73,32 +79,33 @@ export default function Header() {
                         {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
 
-                    {/* Mobile Nav Menu */}
-                    <div className="md:hidden mt-4 hidden" id="mobile-menu">
-                        <ul className="flex flex-col gap-3">
-                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href="/projects">Projects</Link>
-                            </li>
-                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href="/about">About</Link>
-                            </li>
-                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href="/collaborate">Collaborate</Link>
-                            </li>
-                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href="/rent">Rent</Link>
-                            </li>
-                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href="/teach">Teach</Link>
-                            </li>
-                            <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href="/contact">Contact</Link>
-                            </li>
-                        </ul>
-
-                    </div>
-
                 </div>
+
+                {/* Mobile Nav Menu - shown/hidden based on state*/}
+                {isMenuOpen && (
+                <div className="md:hidden mt-4">
+                    <ul className="flex flex-col gap-3">
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                            <Link href="/projects">Projects</Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                            <Link href="/about">About</Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                            <Link href="/collaborate">Collaborate</Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                            <Link href="/rent">Rent</Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                            <Link href="/teach">Teach</Link>
+                        </li>
+                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                            <Link href="/contact">Contact</Link>
+                        </li>
+                    </ul>
+                </div>
+                )}
 
             </nav>
 
