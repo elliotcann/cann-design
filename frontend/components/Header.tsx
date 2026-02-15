@@ -7,7 +7,15 @@ import { Menu, X } from 'lucide-react'
 
 export default function Header() {
 
-    return(
+    // State: is the menu open or closed?
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    // Function to toggle menu state
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen) // Flip between true/false
+    }
+
+    return (
     
         <header className="fixed top-0 left-0 right-0 z-50">
 
@@ -82,7 +90,7 @@ export default function Header() {
                                 <Link href="/contact">Contact</Link>
                             </li>
                         </ul>
-                        
+
                     </div>
 
                 </div>
@@ -90,5 +98,7 @@ export default function Header() {
             </nav>
 
         </header>
+
     )
+
 }
