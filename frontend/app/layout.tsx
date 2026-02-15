@@ -30,55 +30,57 @@ export default function RootLayout({
 
             <nav className="max-w-7xl mx-auto px-6 py-4">
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center">
 
                 {/* Logo */}
-
                 <Link href="/">
                   <Image src="/header-logo.svg" alt="CANN Design logo" width={70} height={70} className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"></Image>
                 </Link>
 
                 {/* Nav Links */}
+                <div className="flex w-full justify-center">
 
-                <ul className="flex gap-6 md:gap-8">
+                  <ul className="flex gap-6 md:gap-8">
 
-                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/projects">
-                      Projects
-                    </Link>
-                  </li>
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                      <Link href="/projects">
+                        Projects
+                      </Link>
+                    </li>
 
-                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/about">
-                      About
-                    </Link>
-                  </li>
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                      <Link href="/about">
+                        About
+                      </Link>
+                    </li>
 
-                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/collaborate">
-                      Collaborate
-                    </Link>
-                  </li>
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                      <Link href="/collaborate">
+                        Collaborate
+                      </Link>
+                    </li>
 
-                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/rent">
-                      Rent
-                    </Link>
-                  </li>
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                      <Link href="/rent">
+                        Rent
+                      </Link>
+                    </li>
 
-                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/teach">
-                      Teach
-                    </Link>
-                  </li>
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                      <Link href="/teach">
+                        Teach
+                      </Link>
+                    </li>
 
-                  <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                    <Link href="/contact">
-                      Contact
-                    </Link>
-                  </li>
+                    <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                      <Link href="/contact">
+                        Contact
+                      </Link>
+                    </li>
 
-                </ul>
+                  </ul>
+
+                </div>
 
               </div>
 
