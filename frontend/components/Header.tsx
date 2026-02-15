@@ -64,8 +64,13 @@ export default function Header() {
                     </ul>
 
                     {/* Mobile Nav Button */}
-                    <button className="md:hidden bg-black text-white p-2 rounded-full" aria-label="Toggle menu">
-                        <Menu className="w-6 h-6" />
+                    <button 
+                        className="md:hidden bg-black text-white p-2 rounded-full"
+                        onClick={toggleMenu}
+                        aria-label="Toggle menu"
+                    >   
+                        {/* Show X when open, Menu when close */}
+                        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
 
                     {/* Mobile Nav Menu */}
