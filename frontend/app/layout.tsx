@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 
