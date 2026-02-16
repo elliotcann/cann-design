@@ -15,6 +15,15 @@ export default function Header() {
         setIsMenuOpen(!isMenuOpen) // Flip between true/false
     }
 
+    const navLinks = [
+        { href: '/projects', label: 'Projects' },
+        { href: '/about', label: 'About' },
+        { href: '/collaborate', label: 'Collaborate' },
+        { href: '/rent', label: 'Rent' },
+        { href: '/teach', label: 'Teach' },
+        { href: '/contact', label: 'Contact' },
+    ]
+
     return (
     
         <header className="fixed top-0 left-0 right-0 z-50">
@@ -37,36 +46,11 @@ export default function Header() {
                     {/* Desktop Nav Links - hidden on mobile */}
 
                     <ul className="hidden lg:flex w-full justify-center lg:gap-8">
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                            <Link href="/projects">
-                                Projects
-                            </Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                            <Link href="/about">
-                                About
-                            </Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                            <Link href="/collaborate">
-                                Collaborate
-                            </Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                            <Link href="/rent">
-                                Rent
-                            </Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                            <Link href="/teach">
-                                Teach
-                            </Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                            <Link href="/contact">
-                                Contact
-                            </Link>
-                        </li>
+                        {navLinks.map((link) => (
+                            <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                                <Link href={link.href}>{link.label}</Link>
+                            </li>
+                        ))}
                     </ul>
 
                     {/* Mobile Nav Button */}
@@ -85,26 +69,15 @@ export default function Header() {
 
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
                 <div className={`lg:hidden h-screen w-64 fixed top-20 right-0 backdrop-filter backdrop-blur-sm bg-opacity-20 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+
                     <ul className="flex flex-col gap-6 mt-8 w-32 justify-self-center">
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/projects" onClick={toggleMenu}>Projects</Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/about" onClick={toggleMenu}>About</Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/collaborate" onClick={toggleMenu}>Collaborate</Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/rent" onClick={toggleMenu}>Rent</Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/teach" onClick={toggleMenu}>Teach</Link>
-                        </li>
-                        <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/contact" onClick={toggleMenu}>Contact</Link>
-                        </li>
+                        {navLinks.map((link) => ( 
+                            <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                <Link href={link.href} onClick={toggleMenu}>{link.label}</Link>
+                            </li>
+                        ))}
                     </ul>
+
                 </div>
 
             </nav>
