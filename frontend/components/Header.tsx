@@ -1,6 +1,6 @@
 "use client" // This line makes it a client component!
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
@@ -14,6 +14,16 @@ export default function Header() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen) // Flip between true/false
     }
+
+    useEffect(() => {
+        if (!isMenuOpen) return // Only runs when menu is open
+
+        const handleClickOutside = () => setIsMenuOpen(false)
+        document.addEventListener('click', handleClickOutside)
+
+        return () => document.removeEventListener('click', handleClickOutside)
+
+    }, [isMenuOpen])
 
     const navLinks = [
         { href: '/projects', label: 'Projects' },
