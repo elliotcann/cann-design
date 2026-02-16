@@ -84,25 +84,25 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
-                <div className={`lg:hidden h-screen w-64 fixed top-20 right-0 bg-white-400 backdrop-filter backdrop-blur-sm bg-opacity-20 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className={`lg:hidden h-screen w-64 fixed top-20 right-0 backdrop-filter backdrop-blur-sm bg-opacity-20 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                     <ul className="flex flex-col gap-6 mt-8 w-32 justify-self-center">
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/projects">Projects</Link>
+                            <Link href="/projects" onClick={toggleMenu}>Projects</Link>
                         </li>
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/about">About</Link>
+                            <Link href="/about" onClick={toggleMenu}>About</Link>
                         </li>
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/collaborate">Collaborate</Link>
+                            <Link href="/collaborate" onClick={toggleMenu}>Collaborate</Link>
                         </li>
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/rent">Rent</Link>
+                            <Link href="/rent" onClick={toggleMenu}>Rent</Link>
                         </li>
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/teach">Teach</Link>
+                            <Link href="/teach" onClick={toggleMenu}>Teach</Link>
                         </li>
                         <li className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                            <Link href="/contact">Contact</Link>
+                            <Link href="/contact" onClick={toggleMenu}>Contact</Link>
                         </li>
                     </ul>
                 </div>
