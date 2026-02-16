@@ -38,9 +38,9 @@ export default function Header() {
     
         <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav className="max-w-7xl mx-auto">
+            <nav className="mx-auto">
 
-                <div className="flex items-center justify-between  px-6 py-4 bg-white-400 backdrop-filter backdrop-blur-sm bg-opacity-20">
+                <div className="flex items-center justify-between px-6 py-4">
 
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0">
@@ -78,7 +78,7 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
-                <div className={`lg:hidden h-screen w-64 fixed top-20 right-0 backdrop-filter backdrop-blur-sm bg-opacity-20 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className={`lg:hidden h-screen w-46 fixed top-20 right-0 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
                     <ul className="flex flex-col gap-6 mt-8 w-32 justify-self-center">
                         {navLinks.map((link) => ( 
