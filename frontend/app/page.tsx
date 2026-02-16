@@ -13,6 +13,10 @@ export default function Home() {
     <main>
       <section className="bg-[url(/home-1.jpg)] bg-center bg-cover">
         <div className="min-h-screen min-w-screen">
+
+          {/* SPACER - prevents content from hiding under fixed header */}
+          <div className="h-24"></div>
+          
           <h2>The Studio</h2>
           <p>CANN Design is a creative collective in pursuit of storytelling, expression and experience within our built environment. We feed ourselves and others to progressively build ideas for our physical place and connection.</p>
           <button>Read more here</button>

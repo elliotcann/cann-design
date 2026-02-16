@@ -29,11 +29,6 @@ export default function RootLayout({
 
         <Header />
 
-          
-        {/* SPACER - prevents content from hiding under fixed header */}
-        <div className="h-24"></div>
-
-
         {/* MAIN CONTENT - Where each page goes */}
 
         <main>
