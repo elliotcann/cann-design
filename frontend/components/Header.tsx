@@ -46,8 +46,8 @@ export default function Header() {
                     {/* Desktop Nav Links - hidden on mobile */}
 
                     <ul className="hidden lg:flex w-full justify-center lg:gap-8">
-                        {navLinks.map((link) => (
-                            <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
+                        {navLinks.map((link) => ( // Maps overLinks array to display desktop nav links
+                            <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
                                 <Link href={link.href}>{link.label}</Link>
                             </li>
                         ))}
