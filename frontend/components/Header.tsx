@@ -38,7 +38,7 @@ export default function Header() {
     
         <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav className="backdrop-blur-sm bg-white/10">
+            <nav className="backdrop-blur-md bg-black/40 border-b border-white/10">
 
                 <div className="flex items-center justify-between px-6 py-4">
 
@@ -57,8 +57,8 @@ export default function Header() {
 
                     <ul className="hidden md:flex w-full justify-center md:gap-6">
                         {navLinks.map((link) => ( // Maps overLinks array to display desktop nav links
-                            <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                                <Link href={link.href}>{link.label}</Link>
+                            <li key={link.href}>
+                                <Link href={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">{link.label}</Link>
                             </li>
                         ))}
                     </ul>
@@ -80,10 +80,10 @@ export default function Header() {
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
                 <div className={`md:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                     <div className="overflow-hidden">
-                        <ul className="flex flex-col gap-6 m-8 w-32 justify-self-center">
+                        <ul className="flex flex-col gap-4 px-6 py-6">
                             {navLinks.map((link) => ( 
-                                <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                    <Link href={link.href} onClick={toggleMenu}>{link.label}</Link>
+                                <li key={link.href} className='mb-4'>
+                                    <Link href={link.href} onClick={toggleMenu}  className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">{link.label}</Link>
                                 </li>
                             ))}
                         </ul>
