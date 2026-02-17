@@ -1,8 +1,5 @@
-"use client";
-
 import Button from "@/components/Button";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 
 const homeContent = [
   { id: 'about',
@@ -34,16 +31,6 @@ const homeContent = [
     background: '/home-4.jpg',
   },
 ]
-// Function to scroll to next section
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId); // Find the sction by its ID
-  if (element) { // If the section exists
-    element.scrollIntoView({
-      behavior: 'smooth', // Scroll is smooth
-      block: 'start' // Aligns to top of viewport
-    })
-  }
-}
 
 export default function Home() {
   return (
@@ -76,13 +63,13 @@ export default function Home() {
 
             <div className="flex justify-center mb-8">
               {nextId && (
-                <button
-                  onClick={() => scrollToSection(nextId)}
-                  className="bg-black text-white p-2 rounded-full opacity-100 transition-opacity cursor-pointer hover:opacity-75 duration-300 ease-in-out"
+                <a
+                  href={`#${nextId}`}
                   aria-label="Next section"
+                  className="bg-black text-white p-2 rounded-full opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out"
                 >
                   <ChevronDown className="w-6 h-6" />
-                </button>
+                </a>
               )}  
             </div>
 
