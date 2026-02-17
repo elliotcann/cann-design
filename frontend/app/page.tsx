@@ -32,7 +32,7 @@ const homeContent = [
     href: '/teach',
     background: '/home-4.jpg',
   },
-  
+
 ]
 
 export default function Home() {
@@ -43,7 +43,7 @@ export default function Home() {
 
         return (
 
-          <section className="relative h-screen w-screen flex flex-col">
+          <section key={content.heading} className="relative h-screen w-screen flex flex-col">
             <Image
               src={content.background}
               alt={content.heading}
