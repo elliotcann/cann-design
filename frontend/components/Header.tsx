@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
+import button from '@/components/Button'
+import Button from '@/components/Button'
 
 export default function Header() {
 
@@ -55,16 +57,20 @@ export default function Header() {
 
                     {/* Desktop Nav Links - hidden on mobile */}
 
-                    <ul className="hidden md:flex w-full justify-center md:gap-6">
+                    <ul className="hidden lg:flex w-full justify-center md:gap-6">
                         {navLinks.map((link) => ( // Maps overLinks array to display desktop nav links
                             <li key={link.href}>
-                                <Link href={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">{link.label}</Link>
+                                <Button
+                                    href={link.href}
+                                    label={link.label}
+                                    onClick={toggleMenu}
+                                />
                             </li>
                         ))}
                     </ul>
 
                     {/* Mobile Nav Button */}
-                    <div className="md:hidden w-10 flex justify-end flex-shrink-0">
+                    <div className="lg:hidden w-10 flex justify-end flex-shrink-0">
                         <button 
                             className="bg-black text-white p-2 rounded-full"
                             onClick={toggleMenu}
@@ -78,12 +84,16 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
-                <div className={`md:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                <div className={`lg:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                     <div className="overflow-hidden">
                         <ul className="flex flex-col gap-4 px-6 py-6">
                             {navLinks.map((link) => ( 
                                 <li key={link.href} className='mb-4'>
-                                    <Link href={link.href} onClick={toggleMenu}  className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">{link.label}</Link>
+                                    <Button
+                                        href={link.href}
+                                        label={link.label}
+                                        onClick={toggleMenu}
+                                    />
                                 </li>
                             ))}
                         </ul>
