@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 const homeContent = [
   { id: 'about',
@@ -45,13 +46,21 @@ export default function Home() {
           <section 
             key={content.heading}
             id={content.id}
-            className="min-h-screen min-w-screen bg-center bg-cover flex flex-col" 
-            style={{ backgroundImage: `url(${content.background})` }}
+            className="relative min-h-screen min-w-screen bg-center bg-cover flex flex-col"
           >
 
-            <div className="h-24"></div>
+            {/* Background Image */}
+            <Image
+              src={content.background}
+              alt={content.heading}
+              fill
+              className="object-cover object-center"
+              priority
+            />
+
+            <div className="relative z-10 h-24"></div>
             
-            <div className="flex-1 flex flex-col items-start justify-center text-white mx-8">
+            <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-8">
                 <h2 className="text-lg font-bold pb-8">{content.heading}</h2>
                 <p className="text-2xl font-bold pb-8">{content.para}</p>
                 <Button
@@ -61,7 +70,7 @@ export default function Home() {
             </div>
             
 
-            <div className="flex justify-center mb-8">
+            <div className="relative z-10 flex justify-center mb-8">
               {nextId && (
                 <a
                   href={`#${nextId}`}
