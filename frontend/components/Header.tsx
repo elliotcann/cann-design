@@ -38,7 +38,7 @@ export default function Header() {
     
         <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav className="mx-auto">
+            <nav className="backdrop-blur-sm bg-white/10">
 
                 <div className="flex items-center justify-between px-6 py-4">
 
@@ -55,7 +55,7 @@ export default function Header() {
 
                     {/* Desktop Nav Links - hidden on mobile */}
 
-                    <ul className="hidden lg:flex w-full justify-center lg:gap-8">
+                    <ul className="hidden md:flex w-full justify-center md:gap-6">
                         {navLinks.map((link) => ( // Maps overLinks array to display desktop nav links
                             <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full border-solid opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
                                 <Link href={link.href}>{link.label}</Link>
@@ -64,7 +64,7 @@ export default function Header() {
                     </ul>
 
                     {/* Mobile Nav Button */}
-                    <div className="lg:hidden w-10 flex justify-end flex-shrink-0">
+                    <div className="md:hidden w-10 flex justify-end flex-shrink-0">
                         <button 
                             className="bg-black text-white p-2 rounded-full"
                             onClick={toggleMenu}
@@ -78,16 +78,16 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
-                <div className={`lg:hidden h-screen w-46 fixed top-20 right-0 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-
-                    <ul className="flex flex-col gap-6 mt-8 w-32 justify-self-center">
-                        {navLinks.map((link) => ( 
-                            <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
-                                <Link href={link.href} onClick={toggleMenu}>{link.label}</Link>
-                            </li>
-                        ))}
-                    </ul>
-
+                <div className={`md:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                    <div className="overflow-hidden">
+                        <ul className="flex flex-col gap-6 m-8 w-32 justify-self-center">
+                            {navLinks.map((link) => ( 
+                                <li key={link.href} className="bg-black text-white text-sm font-bold py-2 px-4 rounded-full text-center">
+                                    <Link href={link.href} onClick={toggleMenu}>{link.label}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
             </nav>
