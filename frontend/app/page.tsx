@@ -1,5 +1,7 @@
+"use client";
+
+import ReactFullpage from "@fullpage/react-fullpage";
 import Button from "@/components/Button";
-import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const homeContent = [
@@ -26,7 +28,7 @@ const homeContent = [
   },
   { id: 'teach',
     heading: 'We Teach',
-    para: 'We are keen knowledge sharers and collaborate across UK architecture schools through academic design studio mentoring and workshops. ',
+    para: 'We are keen knowledge sharers and collaborate across UK architecture schools through academic design studio mentoring and workshops.',
     button: 'Explore our teaching work here',
     href: '/teach',
     background: '/home-4.jpg',
@@ -35,58 +37,41 @@ const homeContent = [
 
 export default function Home() {
   return (
-    
-    <main>
-        
-        {homeContent.map((content, index) => {
-          const nextContent = homeContent[index + 1];
-          const nextId = nextContent?.id;
+    <ReactFullpage
+      scrollingSpeed={800}
+      credits={{ enabled: false }}
+      render={() => (
+        <ReactFullpage.Wrapper>
+          {homeContent.map((content, index) => {
+            const nextContent = homeContent[index + 1];
+            const nextId = nextContent?.id;
 
-          return (
-          <section 
-            key={content.heading}
-            id={content.id}
-            className="relative min-h-screen min-w-screen bg-center bg-cover flex flex-col"
-          >
+            return (
+              <div key={content.id} className="section">
+                <div className="relative h-screen w-screen flex flex-col">
 
-            {/* Background Image */}
-            <Image
-              src={content.background}
-              alt={content.heading}
-              fill
-              className="object-cover object-center"
-              priority
-            />
+                  <Image
+                    src={content.background}
+                    alt={content.heading}
+                    fill
+                    className="object-cover object-center"
+                    priority
+                  />
 
-            <div className="relative z-10 h-24"></div>
-            
-            <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-8">
-                <h2 className="text-lg font-bold pb-8">{content.heading}</h2>
-                <p className="text-2xl font-bold pb-8">{content.para}</p>
-                <Button
-                  href={content.href}
-                  label={content.button}
-                />
-            </div>
-            
+                  <div className="relative z-10 h-24"></div>
 
-            <div className="relative z-10 flex justify-center mb-8">
-              {nextId && (
-                <a
-                  href={`#${nextId}`}
-                  aria-label="Next section"
-                  className="bg-black text-white p-2 rounded-full opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out"
-                >
-                  <ChevronDown className="w-6 h-6" />
-                </a>
-              )}  
-            </div>
+                  <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-8">
+                    <h2 className="text-lg font-bold pb-8">{content.heading}</h2>
+                    <p className="text-2xl font-bold pb-8">{content.para}</p>
+                    <Button href={content.href} label={content.button} />
+                  </div>
 
-          </section>
-          )
-        })}
-
-    </main>
-
+                </div>
+              </div>
+            )
+          })}
+        </ReactFullpage.Wrapper>
+      )}
+    />
   );
 }
