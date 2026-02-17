@@ -1,6 +1,4 @@
-"use client";
-
-import ReactFullpage from "@fullpage/react-fullpage";
+import SmoothScroller from "@/components/SmoothScroller";
 import Button from "@/components/Button";
 import Image from "next/image";
 
@@ -37,41 +35,33 @@ const homeContent = [
 
 export default function Home() {
   return (
-    <ReactFullpage
-      scrollingSpeed={800}
-      credits={{ enabled: false }}
-      render={() => (
-        <ReactFullpage.Wrapper>
-          {homeContent.map((content, index) => {
-            const nextContent = homeContent[index + 1];
-            const nextId = nextContent?.id;
+    <SmoothScroller>
+      {homeContent.map((content, index) => {
+        const nextContent = homeContent[index + 1];
+        const nextId = nextContent?.id;
 
-            return (
-              <div key={content.id} className="section">
-                <div className="relative h-screen w-screen flex flex-col">
-
-                  <Image
-                    src={content.background}
-                    alt={content.heading}
-                    fill
-                    className="object-cover object-center"
-                    priority
-                  />
-
-                  <div className="relative z-10 h-24"></div>
-
-                  <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-8">
-                    <h2 className="text-lg font-bold pb-8">{content.heading}</h2>
-                    <p className="text-2xl font-bold pb-8">{content.para}</p>
-                    <Button href={content.href} label={content.button} />
-                  </div>
-
-                </div>
-              </div>
-            )
-          })}
-        </ReactFullpage.Wrapper>
-      )}
-    />
+        return (
+          <section
+            key={content.id}
+            id={content.id}
+            className="relative h-screen w-screen flex flex-col"
+          >
+            <Image
+              src={content.background}
+              alt={content.heading}
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="relative z-10 h-24"></div>
+            <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-8">
+              <h2 className="text-lg font-bold pb-8">{content.heading}</h2>
+              <p className="text-2xl font-bold pb-8">{content.para}</p>
+              <Button href={content.href} label={content.button} />
+            </div>
+          </section>
+        )
+      })}
+    </SmoothScroller>
   );
 }
