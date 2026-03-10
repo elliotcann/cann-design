@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import BackToTop from "@/components/BackToTop";
 
 interface Props {
   children: React.ReactNode[];
@@ -52,6 +53,12 @@ export default function SmoothScroller({ children }: Props) {
       >
         {children}
       </div>
+
+      <BackToTop
+        currentIndex={currentIndex}
+        onBackToTop={() => goToSection(0)}
+      />
+
     </div>
   );
 }

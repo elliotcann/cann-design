@@ -33,6 +33,8 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
 
     }, []); // The empty [] means: Only run this effect once, when the component first loads
 
+    const className = "fixed bottom-6 right-6 z-50 bg-black text-white p-2 rounded-full opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out cursor-pointer";
+
 
     // SMOOTHSCROLLER PAGE - If currentIndex was passed in then were in a SmoothScroller page
     if(currentIndex !== undefined) {
@@ -40,7 +42,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
         return (
             <button
                 onClick={onBackToTop} // Use the function SmoothScroller gave us
-                className="fixed bottom-8 right-8 z-50 bg-black text-white p-3 rounded-full opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out"
+                className={className}
                 aria-label="Back to top"
             >
                 <ChevronUp className="w-6 h-6" />
@@ -56,7 +58,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
     return ( // Otherwise, render the button!
         <button
             onClick={() => window.scrollTo({ top:0, behavior: "smooth"})} // Calls 'scrollToTop' when button is clicked
-            className="fixed bottom-8 right-8 z-50 bg-black text-white p-3 rounded-full opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out" // Custom Tailwind for button styling
+            className={className} // Custom Tailwind for button styling
             aria-label="Back to top" // Accessability that tells screen readers what the button does
         >
             <ChevronUp className="w-6 h-6" />
