@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
 
 const dmSans = DM_Sans({
@@ -36,32 +34,6 @@ export default function RootLayout({
           {children}
 
         </main>
-
-        {/* FOOTER */}
-
-        <footer>
-
-          <div className="font-bold text-sm bg-black text-white px-6 py-4">
-
-            <div className="flex md:flex-row flex-col align-center justify-between tracking-wide">
-
-              <p className="mb-2 md:mb-0">
-                CANN Design {new Date().getFullYear()} &copy;
-              </p>
-
-              <a href="mailto:hello@cann.design" target="_blank" className="mb-2 md:mb-0 opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                  hello@cann.design
-              </a>
-                  
-              <Link href="/privacy" className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out">
-                  Privacy Policy
-              </Link>
-
-            </div>
-
-          </div>
-          
-        </footer>
 
       </body>
 
