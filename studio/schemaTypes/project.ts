@@ -31,7 +31,7 @@ export default {
             },
         },
         {   // PROJECT CATEGORY
-            name: 'catergories',
+            name: 'categories',
             title: 'Categories',
             type: 'array', // An array so we can use a list
             of: [
