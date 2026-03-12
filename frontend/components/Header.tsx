@@ -30,8 +30,8 @@ export default function Header() {
         { href: '/projects', label: 'Projects' },
         { href: '/about', label: 'About' },
         { href: '/collaborate', label: 'Collaborate' },
-        { href: '/rent', label: 'Rent' },
-        { href: '/teach', label: 'Teach' },
+        { href: '/spaces', label: 'Spaces' },
+        { href: '/education', label: 'Education' },
         { href: '/contact', label: 'Contact' },
     ]
 

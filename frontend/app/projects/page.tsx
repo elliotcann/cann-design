@@ -72,7 +72,7 @@ export default async function ProjectsPage() {
                             <div className="group cursor-pointer">
 
                                 {/* PROJECT IMAGE */}
-                                <div className="relative aspect-square overflow-hidden mb-2">
+                                <div className="relative aspect-7/5 overflow-hidden mb-2">
                                     {project.mainImage && (
                                         <Image
                                             src={urlFor(project.mainImage).width(800).url()}
@@ -84,10 +84,10 @@ export default async function ProjectsPage() {
                                 </div>
 
                                 {/* PROJECT TITLE */}
-                                <h2 className="text-lg font-bold opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out">{project.title}</h2>
+                                <h2 className="text-md font-bold opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out">{project.title}</h2>
 
                                 {/* CATEGORY TAGS */}
-                                <div className="flex gap-2 mt-1 flex-wrap">
+                                <div className="flex gap-2 flex-wrap">
                                     {project.categories?.map((cat: Category) => (
                                         <span key={cat._id} className="text-sm text-gray-400">
                                             {cat.title}
