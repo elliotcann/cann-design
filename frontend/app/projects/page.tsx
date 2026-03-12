@@ -48,7 +48,7 @@ export default async function ProjectsPage() {
             <div className="h-24" /> {/* Spacer for navbar */}
             <div className="px-6 py-4">
 
-                {/* CATEGORY FILTERS - we'll make these work in Stage 3 */}
+                {/* CATEGORY FILTERS */}
                 <div className="flex gap-4 flex-wrap mb-6">
                     <button className="bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer">
                         All
@@ -101,8 +101,10 @@ export default async function ProjectsPage() {
                     ))}
                 </div>
             </div>
+
             <BackToTop />
             <Footer />
+
         </main>
     )
 }

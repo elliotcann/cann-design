@@ -1,13 +1,13 @@
 "use client" // This line makes it a client component!
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
-import Button from '@/components/Button'
 
 export default function Header() {
-
+    const pathname = usePathname()
     // State: is the menu open or closed?
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -59,11 +59,17 @@ export default function Header() {
                     <ul className="hidden lg:flex w-full justify-center md:gap-6">
                         {navLinks.map((link) => ( // Maps overLinks array to display desktop nav links
                             <li key={link.href}>
-                                <Button
+                                <Link
                                     href={link.href}
-                                    label={link.label}
                                     onClick={toggleMenu}
-                                />
+                                    className={`text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block transition-all duration-300 ease-in-out border-2 border-black
+                                    ${pathname === link.href
+                                        ? 'bg-white text-black'           // ← ACTIVE state
+                                        : 'bg-black text-white hover:opacity-75' // ← DEFAULT state
+                                    }`}
+                                >
+                                    {link.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -88,11 +94,17 @@ export default function Header() {
                         <ul className="flex flex-col gap-4 px-6 py-6">
                             {navLinks.map((link) => ( 
                                 <li key={link.href} className='mb-4'>
-                                    <Button
+                                    <Link
                                         href={link.href}
-                                        label={link.label}
                                         onClick={toggleMenu}
-                                    />
+                                        className={`text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block transition-all duration-300 ease-in-out border-2 border-black
+                                        ${pathname === link.href
+                                            ? 'bg-white text-black'           // ← ACTIVE state
+                                            : 'bg-black text-white hover:opacity-75' // ← DEFAULT state
+                                        }`}
+                                    >
+                                        {link.label}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
