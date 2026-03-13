@@ -58,7 +58,7 @@ export default function ProjectsPage() { // 👈 Remove "async" - no longer need
             <div className="flex-1 px-6 py-4">
 
                 {/* FILTER BUTTONS */}
-                <div className="flex gap-4 flex-wrap mb-6">
+                <div className="flex gap-4 flex-wrap mb-6 mt-3">
 
                     <button
                         onClick={() => setActiveCategory(null)}
