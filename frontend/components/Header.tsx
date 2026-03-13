@@ -26,6 +26,7 @@ export default function Header() {
 
     }, [isMenuOpen])
 
+    // Nav links lables and their extensions
     const navLinks = [
         { href: '/projects', label: 'Projects' },
         { href: '/about', label: 'About' },
@@ -39,9 +40,10 @@ export default function Header() {
     
         <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav className="backdrop-blur-md bg-black/40 border-b border-white/10">
+            <nav className="backdrop-blur-md bg-black/40"
+                style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
 
-                <div className="flex items-center justify-between px-6 py-4">
+                <div className="flex items-center justify-between px-6 pt-4 pb-8">
 
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0">
