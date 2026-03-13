@@ -50,12 +50,12 @@ export default function ProjectsPage() { // 👈 Remove "async" - no longer need
 
     const buttonActive = "bg-white text-black text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer border-2 border-black"
 
-    const buttonInactive = "bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer"
+    const buttonInactive = "bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer border-2 border-black"
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen flex flex-col">
             <div className="h-24" />
-            <div className="px-6 py-4">
+            <div className="flex-1 px-6 py-4">
 
                 {/* FILTER BUTTONS */}
                 <div className="flex gap-4 flex-wrap mb-6">
