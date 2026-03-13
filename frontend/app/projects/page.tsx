@@ -29,6 +29,8 @@ type Project = {
     categories: Category[]
 }
 
+const buttonClass = "bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer"
+
 // --- THE PAGE ---
 // Notice it's async! Server components can be async which means
 // you can use await directly inside them - no useEffect needed!
@@ -50,13 +52,13 @@ export default async function ProjectsPage() {
 
                 {/* CATEGORY FILTERS */}
                 <div className="flex gap-4 flex-wrap mb-6">
-                    <button className="bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer">
+                    <button className={buttonClass}>
                         All
                     </button>
                     {categories.map((category: Category) => (
                         <button
                             key={category._id}
-                            className="bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer"
+                            className={buttonClass}
                         >
                             {category.title}
                         </button>
