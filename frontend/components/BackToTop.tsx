@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"; // 'useState' lets us remember a value that can change. 'useEffect' lets us run code when something happens
 
-import { ChevronUp } from "lucide-react"; // Imports up chevron from icon pack we are using
+import { FiChevronUp } from "react-icons/fi"; // Imports up chevron from icon pack we are using
 
 interface Props {
     currentIndex?: number;
@@ -33,7 +33,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
 
     }, []); // The empty [] means: Only run this effect once, when the component first loads
 
-    const className = "fixed bottom-6 right-6 z-50 bg-black text-white p-2 rounded-full opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out cursor-pointer";
+    const className = "fixed bottom-6 right-6 z-50 bg-black text-white p-2 rounded-full border-2 border-black opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out cursor-pointer";
 
 
     // SMOOTHSCROLLER PAGE - If currentIndex was passed in then were in a SmoothScroller page
@@ -45,7 +45,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
                 className={className}
                 aria-label="Back to top"
             >
-                <ChevronUp className="w-6 h-6" />
+                <FiChevronUp className="w-6 h-6" />
             </button>
         );
     
@@ -61,7 +61,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
             className={className} // Custom Tailwind for button styling
             aria-label="Back to top" // Accessability that tells screen readers what the button does
         >
-            <ChevronUp className="w-6 h-6" />
+            <FiChevronUp className="w-6 h-6" />
         </button> 
     );
 }

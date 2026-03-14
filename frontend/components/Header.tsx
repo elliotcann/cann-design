@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
-import { FaPinterest, FaInstagram } from 'react-icons/fa'
+import { FaPinterestP } from 'react-icons/fa'
+import { FiMenu, FiX, FiInstagram } from 'react-icons/fi'
 
 export default function Header() {
     const pathname = usePathname()
@@ -82,16 +82,16 @@ export default function Header() {
                         <a
                             href="https://www.instagram.com/cann.design/"
                             target="_blank"
-                            className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
+                            className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
                         >
-                            <FaInstagram className="w-6 h-6"/>
+                            <FiInstagram className="w-5 h-5"/>
                         </a>
                         <a
                             href="https://uk.pinterest.com/cann_design/"
                             target="_blank"
-                            className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
+                            className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
                         >
-                            <FaPinterest className="w-6 h-6"/>
+                            <FaPinterestP className="w-5 h-5"/>
                         </a>
                     </div>
 
@@ -103,7 +103,7 @@ export default function Header() {
                             aria-label="Toggle menu"
                         >   
                             {/* Show X when open, Menu when close */}
-                            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                            {isMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
                         </button>
                     </div>
 
@@ -133,16 +133,16 @@ export default function Header() {
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
-                                    className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
+                                    className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
                                 >
-                                    <FaInstagram className="w-6 h-6"/>
+                                    <FiInstagram className="w-5 h-5"/>
                                 </a>
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
-                                    className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
+                                    className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
                                 >
-                                    <FaPinterest className="w-6 h-6"/>
+                                    <FaPinterestP className="w-5 h-5"/>
                                 </a>
                             </div>
 
