@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
+import { FaPinterest, FaInstagram } from 'react-icons/fa'
 
 export default function Header() {
     const pathname = usePathname()
@@ -41,7 +42,7 @@ export default function Header() {
         <header className="fixed top-0 left-0 right-0 z-50">
 
             <nav className="backdrop-blur-md bg-black/40"
-                style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
+                style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
 
                 <div className="flex items-center justify-between px-6 pt-4 pb-8">
 
@@ -66,8 +67,8 @@ export default function Header() {
                                     onClick={toggleMenu}
                                     className={`text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block transition-all duration-300 ease-in-out border-2 border-black
                                     ${pathname === link.href
-                                        ? 'bg-white text-black'           // ← ACTIVE state
-                                        : 'bg-black text-white hover:opacity-75' // ← DEFAULT state
+                                        ? "bg-white text-black"           // ← ACTIVE state
+                                        : "bg-black text-white hover:opacity-75" // ← DEFAULT state
                                     }`}
                                 >
                                     {link.label}
@@ -75,6 +76,24 @@ export default function Header() {
                             </li>
                         ))}
                     </ul>
+
+                    {/* Desktop Nav Social Links - hidden on mobile */}
+                    <div className="hidden lg:flex flex-shrink-0 justify-center md:gap-6">
+                        <a
+                            href="https://www.instagram.com/cann.design/"
+                            target="_blank"
+                            className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
+                        >
+                            <FaInstagram className="w-6 h-6"/>
+                        </a>
+                        <a
+                            href="https://uk.pinterest.com/cann_design/"
+                            target="_blank"
+                            className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
+                        >
+                            <FaPinterest className="w-6 h-6"/>
+                        </a>
+                    </div>
 
                     {/* Mobile Nav Button */}
                     <div className="lg:hidden w-10 flex justify-end flex-shrink-0">
@@ -91,25 +110,46 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
-                <div className={`lg:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                <div className={`lg:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
                         <ul className="flex flex-col gap-4 px-6 py-6">
                             {navLinks.map((link) => ( 
-                                <li key={link.href} className='mb-4'>
+                                <li key={link.href} className="mb-4">
                                     <Link
                                         href={link.href}
                                         onClick={toggleMenu}
                                         className={`text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block transition-all duration-300 ease-in-out border-2 border-black
                                         ${pathname === link.href
-                                            ? 'bg-white text-black'           // ← ACTIVE state
-                                            : 'bg-black text-white hover:opacity-75' // ← DEFAULT state
+                                            ? "bg-white text-black"           // ← ACTIVE state
+                                            : "bg-black text-white hover:opacity-75" // ← DEFAULT state
                                         }`}
                                     >
                                         {link.label}
                                     </Link>
                                 </li>
                             ))}
+                            {/* Mobile Nav Social links - shown/hidden based on state*/}
+                            <div className="lg:hidden flex justify-start gap-4 mb-24">
+                                <a
+                                    href="https://uk.pinterest.com/cann_design/"
+                                    target="_blank"
+                                    className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
+                                >
+                                    <FaInstagram className="w-6 h-6"/>
+                                </a>
+                                <a
+                                    href="https://uk.pinterest.com/cann_design/"
+                                    target="_blank"
+                                    className="bg-black text-white p-2 rounded-full transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
+                                >
+                                    <FaPinterest className="w-6 h-6"/>
+                                </a>
+                            </div>
+
                         </ul>
+                        <div>
+
+                        </div>
                     </div>
                 </div>
 
