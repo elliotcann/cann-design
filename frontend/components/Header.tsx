@@ -37,6 +37,8 @@ export default function Header() {
         { href: '/contact', label: 'Contact' },
     ]
 
+    const roundButtonClass = "bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75"
+
     return (
     
         <header className="fixed top-0 left-0 right-0 z-50">
@@ -53,7 +55,7 @@ export default function Header() {
                             alt="CANN Design logo" 
                             width={70} 
                             height={70} 
-                            className="opacity-100  transition-opacity hover:opacity-75 duration-300 ease-in-out"
+                            className="transition-opacity hover:opacity-75 duration-300 ease-in-out"
                         />
                     </Link>
 
@@ -82,14 +84,14 @@ export default function Header() {
                         <a
                             href="https://www.instagram.com/cann.design/"
                             target="_blank"
-                            className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
+                            className={roundButtonClass}
                         >
                             <FiInstagram className="w-5 h-5"/>
                         </a>
                         <a
                             href="https://uk.pinterest.com/cann_design/"
                             target="_blank"
-                            className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 flex items-center justify-center"
+                            className={roundButtonClass}
                         >
                             <FaPinterestP className="w-5 h-5"/>
                         </a>
@@ -133,14 +135,14 @@ export default function Header() {
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
-                                    className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
+                                    className={roundButtonClass}
                                 >
                                     <FiInstagram className="w-5 h-5"/>
                                 </a>
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
-                                    className="bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75 inline-flex items-center justify-center"
+                                    className={roundButtonClass}
                                 >
                                     <FaPinterestP className="w-5 h-5"/>
                                 </a>
