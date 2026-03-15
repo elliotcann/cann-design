@@ -43,10 +43,13 @@ export default function Header() {
     
         <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav className="backdrop-blur-md bg-black/40"
-                style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
+            <nav className="relative">
+                <div
+                    className="absolute inset-0 backdrop-blur-md bg-black/80 pointer-events-none"
+                    style={{ maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)" }}
+                />
 
-                <div className="flex items-center justify-between px-6 pt-4 pb-8">
+                <div className="relative flex items-center justify-between px-6 pt-4 pb-8">
 
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0">
