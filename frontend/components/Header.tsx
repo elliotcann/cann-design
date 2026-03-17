@@ -117,7 +117,8 @@ export default function Header() {
                 {/* Mobile Nav Menu - shown/hidden based on state*/}
                 <div className={`lg:hidden grid transition-all duration-300 ease-in-out ${isMenuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                        <ul className="flex flex-col gap-4 px-6 py-6">
+
+                        <ul className="relative z-10 flex flex-col gap-4 px-6 py-6">
                             {navLinks.map((link) => ( 
                                 <li key={link.href} className="mb-4">
                                     <Link
@@ -134,7 +135,7 @@ export default function Header() {
                                 </li>
                             ))}
                             {/* Mobile Nav Social links - shown/hidden based on state*/}
-                            <div className="lg:hidden flex justify-start gap-4 mb-24">
+                            <div className="lg:hidden flex justify-start gap-4 mb-64">
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
