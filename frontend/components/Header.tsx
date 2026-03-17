@@ -45,7 +45,7 @@ export default function Header() {
 
             <nav className="relative">
                 <div
-                    className="absolute inset-0 backdrop-blur-md bg-black/80 pointer-events-none"
+                    className="absolute inset-0 backdrop-blur-3xl bg-black/50 pointer-events-none"
                     style={{ maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)" }}
                 />
 
