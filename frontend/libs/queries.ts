@@ -27,7 +27,13 @@ export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug
     mainImage,
     publishedAt,
     excerpt,
-    body,
+    body[]{
+        ...,
+        _type == "image" => {
+            ...,
+            asset->
+        }    
+    },
     categories[]-> {
         _id,
         title,
