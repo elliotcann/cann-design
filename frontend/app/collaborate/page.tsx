@@ -70,7 +70,7 @@ export default function CollaboratePage() {
                             key={item.id}
                             // The box grows in height when open using grid trick
                             // same technique as your mobile nav!
-                            className={`relative overflow-hidden rounded-lg cursor-pointer transition-all duration-500 ease-in-out bg-cover bg-center flex flex-col ${isOpen ? 'min-h-[500px]' : 'min-h-[120px]'}`}
+                            className={`relative overflow-hidden cursor-pointer transition-all duration-500 ease-in-out bg-cover bg-center flex flex-col ${isOpen ? 'min-h-[500px]' : 'min-h-[120px]'}`}
                             style={{ backgroundImage: `url(${item.image})` }}
                             onClick={() => handleClick(item.id)}
                         >
