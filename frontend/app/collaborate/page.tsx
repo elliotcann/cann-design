@@ -75,7 +75,7 @@ export default function CollaboratePage() {
                             onClick={() => handleClick(item.id)}
                         >
                             {/* Dark overlay so text is always readable over the image */}
-                            <div className="absolute inset-0 bg-black/50" />
+                            <div className="absolute inset-0 bg-black/40" />
 
                             {/* Content sits above the overlay using z-10 */}
                             <div className="relative z-10 flex flex-col justify-start flex-1 p-6">
@@ -84,17 +84,19 @@ export default function CollaboratePage() {
                                 <div className="flex items-center justify-between gap-4 ${!isOpen ? 'flex-1' : ''}">
                                     <h2 className="text-white font-bold text-2xl md:text-3xl">{item.title}</h2>
                                     {/* Plus becomes minus when open */}
+                                    <div className="bg-black rounded-full p-2">
                                     {isOpen
-                                        ? <FiMinus className="bg-black rounded-full p-2 text-white w-6 h-6 flex-shrink-0" />
-                                        : <FiPlus className="bg-black rounded-full p-2 text-white w-6 h-6 flex-shrink-0" />
+                                        ? <FiMinus className="text-white w-5 h-5 flex-shrink-0" />
+                                        : <FiPlus className="text-white w-5 h-5 flex-shrink-0" />
                                     }
+                                    </div>
                                 </div>
 
                                 {/* BODY TEXT — only visible when open */}
                                 {/* Same grid trick as mobile nav for smooth animation */}
                                 <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] mt-6' : 'grid-rows-[0fr]'}`}>
                                     <div className="overflow-hidden">
-                                        <p className="text-white/80 text-base leading-relaxed">
+                                        <p className="text-white">
                                             {item.body}
                                         </p>
                                     </div>
