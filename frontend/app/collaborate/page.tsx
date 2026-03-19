@@ -81,7 +81,7 @@ export default function CollaboratePage() {
                             <div className="relative z-10 flex flex-col justify-start flex-1 p-6">
 
                                 {/* TOP ROW — title + icon */}
-                                <div className="flex items-center justify-between gap-4 ${!isOpen ? 'flex-1' : ''}">
+                                <div className="flex items-center justify-between gap-4">
                                     <h2 className="text-white font-bold text-2xl md:text-3xl">{item.title}</h2>
                                     {/* Plus becomes minus when open */}
                                     <div className="bg-black rounded-full p-2">
