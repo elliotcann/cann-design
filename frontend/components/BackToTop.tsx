@@ -17,16 +17,20 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
         if (currentIndex !== undefined) return;
 
         const footer = document.querySelector("footer");
-        if (footer) footerHeightRef.current = footer.offsetHeight;
 
         const handleScroll = () => {
+            if (footer) footerHeightRef.current = footer.offsetHeight;
             setIsVisible(window.scrollY > 400);
             setAboveFooter(!!footer && footer.getBoundingClientRect().top <= window.innerHeight);
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", handleScroll, { passive: true });
         handleScroll();
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+        };
     }, []);
 
     const bottom = aboveFooter ? footerHeightRef.current + 16 : 24;
