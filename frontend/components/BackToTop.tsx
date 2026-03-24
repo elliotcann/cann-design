@@ -1,8 +1,7 @@
-"use client"; // This component is using browser features such as scrolling, window. So run it on client and not server!
+"use client";
 
-import { useState, useEffect } from "react"; // 'useState' lets us remember a value that can change. 'useEffect' lets us run code when something happens
-
-import { FiChevronUp } from "react-icons/fi"; // Imports up chevron from icon pack we are using
+import { useState, useEffect, useRef } from "react";
+import { FiChevronUp } from "react-icons/fi";
 
 interface Props {
     currentIndex?: number;
@@ -10,59 +9,49 @@ interface Props {
 }
 
 export default function BackToTop({ currentIndex, onBackToTop }: Props) {
+    const [isVisible, setIsVisible] = useState(false);
+    const [aboveFooter, setAboveFooter] = useState(false);
+    const footerHeightRef = useRef(0);
 
-    const [isVisible, setIsVisible] = useState(false); // 'isVisible' is our memory, it tracks whether the button should show or hide
-    // 'useState(false)' means start hidden (false = not visible). 'setIsVisible' is the function we call to UPDATE that memory
+    useEffect(() => {
+        if (currentIndex !== undefined) return;
 
-    useEffect(() => {  // useEffect runs code outside of rendering. Here we use it to add a scroll listener when the component loads and remove it when the component is removed
-        if (currentIndex !== undefined) return; // Only run this on normal pages when an Index is not passed in. Skips it on pages with SmoothScroller
+        const footer = document.querySelector("footer");
+        if (footer) footerHeightRef.current = footer.offsetHeight;
 
         const handleScroll = () => {
-            if (window.scrollY > 400) { // 'window.scrollY' how many pixels the user has scrolled. If the scrolled more than 400px, show the button
-                setIsVisible(true); // Update state to true -> button appears
-            } else {
-                setIsVisible(false); // Update state to false -> button disappears
-            }
+            setIsVisible(window.scrollY > 400);
+            setAboveFooter(!!footer && footer.getBoundingClientRect().top <= window.innerHeight);
         };
 
-        window.addEventListener("scroll", handleScroll); // Attach a listener: everytime a user scrolls, call handleScroll
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };  // When this component is removed from the page, remove the event listener so it does not keep running in the background
+    const bottom = aboveFooter ? footerHeightRef.current + 16 : 24;
+    const className = "fixed z-50 right-6 bg-black text-white p-2 rounded-full border-2 border-black opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out cursor-pointer";
+    const style = { bottom: `${bottom}px`, transition: "bottom 0.2s ease" };
 
-    }, []); // The empty [] means: Only run this effect once, when the component first loads
-
-    const className = "fixed bottom-6 right-6 z-50 bg-black text-white p-2 rounded-full border-2 border-black opacity-100 hover:opacity-75 transition-opacity duration-300 ease-in-out cursor-pointer";
-
-
-    // SMOOTHSCROLLER PAGE - If currentIndex was passed in then were in a SmoothScroller page
-    if(currentIndex !== undefined) {
-        if(currentIndex === 0) return null;
+    if (currentIndex !== undefined) {
+        if (currentIndex === 0) return null;
         return (
-            <button
-                onClick={onBackToTop} // Use the function SmoothScroller gave us
-                className={className}
-                aria-label="Back to top"
-            >
+            <button onClick={onBackToTop} className={className} style={style} aria-label="Back to top">
                 <FiChevronUp className="w-6 h-6" />
             </button>
         );
-    
-
     }
 
-    // NORMAL PAGE - No currentIndex passed in so use window.scrollY logic
-    if (!isVisible) return null; // If isVisible is false, return null -> render nothing (button is hidden)
+    if (!isVisible) return null;
 
-    return ( // Otherwise, render the button!
+    return (
         <button
-            onClick={() => window.scrollTo({ top:0, behavior: "smooth"})} // Calls 'scrollToTop' when button is clicked
-            className={className} // Custom Tailwind for button styling
-            aria-label="Back to top" // Accessability that tells screen readers what the button does
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className={className}
+            style={style}
+            aria-label="Back to top"
         >
             <FiChevronUp className="w-5 h-5" />
-        </button> 
+        </button>
     );
 }
-
