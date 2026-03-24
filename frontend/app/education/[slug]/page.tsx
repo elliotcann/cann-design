@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { client, urlFor } from '@/libs/sanity'
 import { PortableText } from '@portabletext/react'
 import Footer from '@/components/Footer'
+import BackToTop from '@/components/BackToTop'
+import CloseButton from '@/components/CloseButton'
 
 type ImageBlock = {
     _type: 'image'
@@ -124,6 +126,8 @@ export default function EducationPostPage() {
 
             </div>
 
+            <CloseButton />
+            <BackToTop />
             <Footer />
         </main>
     )

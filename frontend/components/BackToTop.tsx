@@ -61,7 +61,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
             className={className} // Custom Tailwind for button styling
             aria-label="Back to top" // Accessability that tells screen readers what the button does
         >
-            <FiChevronUp className="w-6 h-6" />
+            <FiChevronUp className="w-5 h-5" />
         </button> 
     );
 }

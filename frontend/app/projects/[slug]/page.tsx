@@ -7,6 +7,8 @@ import { client, urlFor } from '@/libs/sanity'
 import { projectBySlugQuery } from '@/libs/queries'
 import { PortableText } from '@portabletext/react'
 import Footer from '@/components/Footer'
+import BackToTop from '@/components/BackToTop'
+import CloseButton from '@/components/CloseButton'
 
 // --- TYPES ---
 // These describe the shape of the data coming back from Sanity
@@ -119,6 +121,8 @@ export default function ProjectPage() {
 
             </div>
 
+            <CloseButton />
+            <BackToTop />
             <Footer />
         </main>
     )
