@@ -1,11 +1,9 @@
 "use client" // 👈 ADD THIS - makes the whole page interactive
 
 import { useState, useEffect } from 'react' // 👈 ADD useEffect too
-import { client, urlFor } from '@/libs/sanity'
+import { client } from '@/libs/sanity'
 import { projectsQuery, categoriesQuery } from '@/libs/queries'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
+import ContentCard from '@/components/ContentCard'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 
@@ -89,34 +87,7 @@ export default function ProjectsPage() { // 👈 Remove "async" - no longer need
                 {/* PROJECTS GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {visibleProjects.map((project) => (
-                        <Link key={project._id} href={`/projects/${project.slug.current}`}>
-                            <motion.div                                          // 👈 was <div>
-                                className="group cursor-pointer"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="relative aspect-7/5 overflow-hidden mb-2">
-                                    {project.mainImage && (
-                                        <Image
-                                            src={urlFor(project.mainImage).width(800).url()}
-                                            alt={project.title}
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                    )}
-                                </div>
-                                <h2 className="text-md font-bold line-clamp-2">{project.title}</h2>
-                                <div className="flex gap-2 flex-wrap">
-                                    {project.categories?.map((cat) => (
-                                        <span key={cat._id} className="text-sm text-gray-400">
-                                            {cat.title}
-                                        </span>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        </Link>
+                        <ContentCard key={project._id} {...project} href="/projects" />
                     ))}
                 </div>
 

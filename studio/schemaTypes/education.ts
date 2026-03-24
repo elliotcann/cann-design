@@ -1,13 +1,13 @@
-// This defines what fields a teaching post will have
+// This defines what fields an education post will have
 
 export default {
-    name: 'teaching',
-    title: 'Teaching',
+    name: 'education',
+    title: 'Education',
     type: 'document',
     fields: [
         {
             name: 'title',
-            titel: 'Title',
+            title: 'Title',
             type: 'string',
             validation: (Rule: any) => Rule.required()
         },
@@ -55,7 +55,7 @@ export default {
         },
         {
             name: 'body',
-            title: 'content',
+            title: 'Content',
             type: 'array',
             of: [
                 {

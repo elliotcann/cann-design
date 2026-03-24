@@ -41,6 +41,22 @@ export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug
     }
 }`
 
+// --- FETCH ALL EDUCATION POSTS ---
+// This query fetches every education post ordered by publication date (descending)
+export const educationQuery = `*[_type == "education"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    excerpt,
+    categories[]-> {
+        _id,
+        title,
+        slug
+    }
+}`
+
 // --- FETCH ALL CATEGORIES ---
 // This fetches every category for your filter buttons at the top of the grid
 export const categoriesQuery = `*[_type == "category"] | order(title asc) {
