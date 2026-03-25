@@ -41,6 +41,28 @@ export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug
     }
 }`
 
+// --- FETCH A SINGLE EDUCATION POST ---
+export const educationBySlugQuery = `*[_type == "education" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    excerpt,
+    body[]{
+        ...,
+        _type == "image" => {
+            ...,
+            asset->
+        }
+    },
+    categories[]-> {
+        _id,
+        title,
+        slug
+    }
+}`
+
 // --- FETCH ALL EDUCATION POSTS ---
 // This query fetches every education post ordered by publication date (descending)
 export const educationQuery = `*[_type == "education"] | order(publishedAt desc) {
@@ -63,6 +85,28 @@ export const categoriesQuery = `*[_type == "category" && _id in *[_type == "proj
     _id,
     title,
     slug
+}`
+
+// --- FETCH A SINGLE SPACE ---
+export const spaceBySlugQuery = `*[_type == "space" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    excerpt,
+    body[]{
+        ...,
+        _type == "image" => {
+            ...,
+            asset->
+        }
+    },
+    categories[]-> {
+        _id,
+        title,
+        slug
+    }
 }`
 
 // --- FETCH ALL SPACES ---
