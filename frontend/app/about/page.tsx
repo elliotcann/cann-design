@@ -1,45 +1,62 @@
 import Footer from "@/components/Footer"
 import Image from "next/image"
 
+const sections = [
+    {
+        title: "About CANN Design",
+        body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        image: "/about-main.jpg",
+        alt: "About CANN Design",
+    },
+    {
+        title: "Our Approach",
+        body: "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        image: "/about-profile.jpg",
+        alt: "Our approach to design",
+    },
+    {
+        title: "Our Team",
+        body: "More recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        image: "/about-main.jpg",
+        alt: "Our team",
+    },
+    {
+        title: "Our Work",
+        body: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        image: "/about-profile.jpg",
+        alt: "Our work",
+    },
+]
+
 export default function About() {
 
     return (
 
         <main>
 
-            {/* HERO IMAGE with gradient fade */}
-            <div className="relative">
-                <Image
-                    src="/about-main.jpg"
-                    alt="Main header image for the about page"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="object-cover object-center"
-                    style={{ width: "100%", height: '800px' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white" />
-            </div>
+            {sections.map((section, index) => (
+                <div key={index} className="flex flex-col">
 
-            {/* CONTENT */}
-            <div className="px-8 pb-16">
+                    {/* IMAGE — responsive height */}
+                    <div className="relative w-full h-[70vw] md:h-[80vh]">
+                        <Image
+                            src={section.image}
+                            alt={section.alt}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
 
-                <h1 className="text-3xl font-bold pb-8">About CANN Design</h1>
+                    {/* CONTENT — grows with text */}
+                    <div className="flex items-center px-6 py-8 md:px-10 md:py-10">
+                        <div className="prose prose-lg max-w-none">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-4">{section.title}</h2>
+                            <p>{section.body}</p>
+                        </div>
+                    </div>
 
-                <div className="md:flex md:flex-row md:items-start md:gap-8">
-                    <Image
-                        src="/about-profile.jpg"
-                        alt="Profile photo"
-                        width={200}
-                        height={200}
-                        className="object-cover object-center flex-shrink-0"
-                    />
-                    <p className="pt-6 md:pt-0">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                    </p>
                 </div>
-
-            </div>
+            ))}
 
             <Footer />
 
