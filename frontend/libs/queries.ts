@@ -8,7 +8,6 @@ export const projectsQuery = `*[_type == "project"] | order(publishedAt desc) {
     title,
     slug,
     mainImage,
-    publishedAt,
     excerpt,
     categories[]-> {
         _id,
@@ -25,7 +24,6 @@ export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug
     title,
     slug,
     mainImage,
-    publishedAt,
     excerpt,
     body[]{
         ...,
@@ -47,7 +45,6 @@ export const educationBySlugQuery = `*[_type == "education" && slug.current == $
     title,
     slug,
     mainImage,
-    publishedAt,
     excerpt,
     body[]{
         ...,
@@ -70,7 +67,6 @@ export const educationQuery = `*[_type == "education"] | order(publishedAt desc)
     title,
     slug,
     mainImage,
-    publishedAt,
     excerpt,
     categories[]-> {
         _id,
@@ -93,7 +89,6 @@ export const spaceBySlugQuery = `*[_type == "space" && slug.current == $slug][0]
     title,
     slug,
     mainImage,
-    publishedAt,
     excerpt,
     body[]{
         ...,
@@ -115,7 +110,6 @@ export const spacesQuery = `*[_type == "space"] | order(publishedAt desc) {
     title,
     slug,
     mainImage,
-    publishedAt,
     excerpt,
     categories[]-> {
         _id,

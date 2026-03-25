@@ -44,12 +44,7 @@ export default {
                 ],
             description: 'Select categories for this project',
         },
-        {   // PROJECT PUBLICATION DATE
-            name: 'publishedAt',
-            title: 'Published Date',
-            type: 'datetime', // Show when the project was completed/published
-        },
-        {   // PROJECT SHORT DESCRIPTION
+{   // PROJECT SHORT DESCRIPTION
             name: 'excerpt',
             title: 'Short Description',
             type: 'text', // Allows for multiline text - unlike a string which is single line text
@@ -85,7 +80,6 @@ export default {
         select: {
             title: 'title',
             media: 'mainImage',
-            subtitle: 'publishedAt',
         },
     },
 }

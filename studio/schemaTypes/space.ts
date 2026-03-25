@@ -44,12 +44,7 @@ export default {
             ],
             description: 'Select categories for this space',
         },
-        {   // SPACE PUBLICATION DATE
-            name: 'publishedAt',
-            title: 'Published Date',
-            type: 'datetime',
-        },
-        {   // SPACE SHORT DESCRIPTION
+{   // SPACE SHORT DESCRIPTION
             name: 'excerpt',
             title: 'Short Description',
             type: 'text',
@@ -84,7 +79,6 @@ export default {
         select: {
             title: 'title',
             media: 'mainImage',
-            subtitle: 'publishedAt',
         },
     },
 }

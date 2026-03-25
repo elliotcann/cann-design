@@ -42,12 +42,7 @@ export default {
                     },
                 ],
         },
-        {
-            name: 'publishedAt',
-            title: 'Published Date',
-            type: 'datetime',
-        },
-        {
+{
             name: 'excerpt',
             title: 'Short Description',
             type: 'text',

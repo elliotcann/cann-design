@@ -22,7 +22,6 @@ export type ArticleData = {
     title: string
     mainImage: any
     excerpt: string
-    publishedAt: string
     body: (ImageBlock | TextBlock)[]
 }
 
