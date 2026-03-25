@@ -57,9 +57,17 @@ export const educationQuery = `*[_type == "education"] | order(publishedAt desc)
     }
 }`
 
-// --- FETCH ALL CATEGORIES ---
-// This fetches every category for your filter buttons at the top of the grid
-export const categoriesQuery = `*[_type == "category"] | order(title asc) {
+// --- FETCH PROJECT CATEGORIES ---
+// Only fetches categories that are actually used by project posts
+export const categoriesQuery = `*[_type == "category" && _id in *[_type == "project"].categories[]._ref] | order(title asc) {
+    _id,
+    title,
+    slug
+}`
+
+// --- FETCH EDUCATION CATEGORIES ---
+// Only fetches categories that are actually used by education posts
+export const educationCategoriesQuery = `*[_type == "category" && _id in *[_type == "education"].categories[]._ref] | order(title asc) {
     _id,
     title,
     slug

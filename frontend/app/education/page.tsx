@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { client } from '@/libs/sanity'
-import { educationQuery } from '@/libs/queries'
+import { educationQuery, educationCategoriesQuery } from '@/libs/queries'
 import ContentCard from '@/components/ContentCard'
+import FilterButtons from '@/components/FilterButtons'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 
@@ -25,20 +26,35 @@ type EducationPost = {
 
 export default function EducationPage() {
 
+    const [activeCategory, setActiveCategory] = useState<string | null>(null)
     const [posts, setPosts] = useState<EducationPost[]>([])
+    const [categories, setCategories] = useState<Category[]>([])
 
     useEffect(() => {
         client.fetch(educationQuery).then(data => setPosts(data))
+        client.fetch(educationCategoriesQuery).then(data => setCategories(data))
     }, [])
+
+    const visiblePosts = activeCategory
+        ? posts.filter(post =>
+            post.categories?.some(cat => cat._id === activeCategory)
+          )
+        : posts
 
     return (
         <main className="min-h-screen flex flex-col">
             <div className="h-24" />
             <div className="flex-1 px-6 py-4">
 
+                <FilterButtons
+                    categories={categories}
+                    activeCategory={activeCategory}
+                    onChange={setActiveCategory}
+                />
+
                 {/* EDUCATION GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3">
-                    {posts.map((post) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {visiblePosts.map((post) => (
                         <ContentCard key={post._id} {...post} href="/education" />
                     ))}
                 </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react' // 👈 ADD useEffect too
 import { client } from '@/libs/sanity'
 import { projectsQuery, categoriesQuery } from '@/libs/queries'
 import ContentCard from '@/components/ContentCard'
+import FilterButtons from '@/components/FilterButtons'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 
@@ -45,44 +46,16 @@ export default function ProjectsPage() { // 👈 Remove "async" - no longer need
           )
         : projects
 
-    // Button classes
-
-    const buttonActive = "bg-white text-black text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer border-2 border-black"
-
-    const buttonInactive = "bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block opacity-100 transition-opacity hover:opacity-75 duration-300 ease-in-out cursor-pointer border-2 border-black"
-
     return (
         <main className="min-h-screen flex flex-col">
             <div className="h-24" />
             <div className="flex-1 px-6 py-4">
 
-                {/* FILTER BUTTONS */}
-                <div className="flex gap-4 flex-wrap mb-6 mt-3">
-
-                    <button
-                        onClick={() => setActiveCategory(null)}
-                        className={activeCategory === null
-                            ? buttonActive
-                            : buttonInactive
-                        }
-                    >
-                        All
-                    </button>
-
-                    {categories.map((category) => (
-                        <button
-                            key={category._id}
-                            onClick={() => setActiveCategory(category._id)}
-                            className={activeCategory === category._id
-                                ? buttonActive
-                                : buttonInactive
-                            }
-                        >
-                            {category.title}
-                        </button>
-                    ))}
-
-                </div>
+                <FilterButtons
+                    categories={categories}
+                    activeCategory={activeCategory}
+                    onChange={setActiveCategory}
+                />
 
                 {/* PROJECTS GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
