@@ -41,7 +41,7 @@ export default function BackToTop({ currentIndex, onBackToTop }: Props) {
         if (currentIndex === 0) return null;
         return (
             <button onClick={onBackToTop} className={className} style={style} aria-label="Back to top">
-                <FiChevronUp className="w-6 h-6" />
+                <FiChevronUp className="w-5 h-5" />
             </button>
         );
     }

@@ -8,7 +8,7 @@ export default function Footer() {
 
           <div className="font-bold text-sm bg-black text-white px-6 py-4">
 
-            <div className="flex md:flex-row flex-col align-center justify-between tracking-wide">
+            <div className="flex md:flex-row flex-col items-center justify-between tracking-wide">
 
               <p className="mb-2 md:mb-0">
                 CANN Design {new Date().getFullYear()} &copy;

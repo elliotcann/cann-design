@@ -135,7 +135,7 @@ export default function Header() {
                                 </li>
                             ))}
                             {/* Mobile Nav Social links - shown/hidden based on state*/}
-                            <div className="lg:hidden flex justify-start gap-4 mb-64">
+                            <div className="lg:hidden flex justify-start gap-4">
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"

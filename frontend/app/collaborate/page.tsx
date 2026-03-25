@@ -74,7 +74,7 @@ export default function CollaboratePage() {
 
                                 <div className="flex items-center justify-between gap-4">
                                     <h2 className="text-white font-bold text-2xl md:text-3xl">{item.title}</h2>
-                                    <div className="bg-black rounded-full p-2">
+                                    <div className="bg-black rounded-full p-2 border-2 border-black flex-shrink-0">
                                         {isOpen
                                             ? <FiMinus className="text-white w-5 h-5 flex-shrink-0" />
                                             : <FiPlus className="text-white w-5 h-5 flex-shrink-0" />
