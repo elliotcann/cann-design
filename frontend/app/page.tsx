@@ -52,9 +52,9 @@ export default function Home() {
               priority
             />
             <div className="relative z-10 h-24"></div>
-            <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-8">
-              <h2 className="text-3xl font-bold pb-8">{content.heading}</h2>
-              <p className="text-5xl font-bold pb-8">{content.para}</p>
+            <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-6 md:mx-12">
+              <h2 className="text-base text-xl md:text-3xl font-bold  pb-4 md:pb-6">{content.heading}</h2>
+              <p className="text-3xl md:text-5xl font-bold pb-6 md:pb-8">{content.para}</p>
               <Button href={content.href} label={content.button} />
             </div>
           </section>
