@@ -76,8 +76,6 @@ export default function EducationPostPage() {
     return (
         <main className="min-h-screen flex flex-col">
 
-            <div className="h-32" />
-
             {post.mainImage && (
                 <div className="relative w-full aspect-7/5">
                     <Image
@@ -92,9 +90,11 @@ export default function EducationPostPage() {
             <div className="px-6 py-12 flex flex-col gap-12">
 
                 <div>
-                    <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+                    <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
                     {post.excerpt && (
-                        <p className="text-gray-400">{post.excerpt}</p>
+                        <div className="prose prose-lg max-w-none">
+                            <p>{post.excerpt}</p>
+                        </div>
                     )}
                 </div>
 
@@ -119,7 +119,7 @@ export default function EducationPostPage() {
                 )}
 
                 {bodyText.length > 0 && (
-                    <div className="prose prose-invert max-w-none">
+                    <div className="prose prose-lg max-w-none md:columns-2 md:gap-8">
                         <PortableText value={bodyText} />
                     </div>
                 )}

@@ -66,9 +66,6 @@ export default function ProjectPage() {
     return (
         <main className="min-h-screen flex flex-col">
 
-            {/* Spacer for fixed header */}
-            <div className="h-32" />
-
             {/* MAIN IMAGE */}
             {project.mainImage && (
                 <div className="relative w-full aspect-7/5">
@@ -85,11 +82,15 @@ export default function ProjectPage() {
 
                 {/* TITLE + EXCERPT */}
                 <div>
-                    <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+                    <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
                     {project.excerpt && (
-                        <p className="text-gray-400">{project.excerpt}</p>
+                        <div className="prose prose-lg max-w-none">
+                            <p>{project.excerpt}</p>
+                        </div>
                     )}
                 </div>
+
+                
 
                 {/* IMAGE GRID */}
                 {bodyImages.length > 0 && (
@@ -114,7 +115,7 @@ export default function ProjectPage() {
 
                 {/* BODY TEXT */}
                 {bodyText.length > 0 && (
-                    <div className="prose prose-invert max-w-none">
+                    <div className="prose prose-lg max-w-none md:columns-2 md:gap-8">
                         <PortableText value={bodyText} />
                     </div>
                 )}
