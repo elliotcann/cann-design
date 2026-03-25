@@ -65,6 +65,29 @@ export const categoriesQuery = `*[_type == "category" && _id in *[_type == "proj
     slug
 }`
 
+// --- FETCH ALL SPACES ---
+export const spacesQuery = `*[_type == "space"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    excerpt,
+    categories[]-> {
+        _id,
+        title,
+        slug
+    }
+}`
+
+// --- FETCH SPACE CATEGORIES ---
+// Only fetches categories that are actually used by space posts
+export const spaceCategoriesQuery = `*[_type == "category" && _id in *[_type == "space"].categories[]._ref] | order(title asc) {
+    _id,
+    title,
+    slug
+}`
+
 // --- FETCH EDUCATION CATEGORIES ---
 // Only fetches categories that are actually used by education posts
 export const educationCategoriesQuery = `*[_type == "category" && _id in *[_type == "education"].categories[]._ref] | order(title asc) {
