@@ -27,6 +27,8 @@ export type ArticleData = {
 
 export default function ArticlePage({ article }: { article: ArticleData }) {
 
+    // Sanity body content is a mixed array of images and text blocks.
+    // We split them here so images can be displayed in a grid and text in columns.
     const bodyImages = article.body?.filter(
         (block): block is ImageBlock => block._type === 'image'
     ) ?? []
@@ -78,6 +80,7 @@ export default function ArticlePage({ article }: { article: ArticleData }) {
                 )}
 
                 {bodyText.length > 0 && (
+                    // prose classes apply @tailwindcss/typography styles to the rich text Sanity returns
                     <div className="prose prose-lg max-w-none md:columns-2 md:gap-8">
                         <PortableText value={bodyText} />
                     </div>

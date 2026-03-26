@@ -46,6 +46,7 @@ export default function Header() {
         <header className="fixed top-0 left-0 right-0 z-50">
 
             <nav className="relative">
+                {/* Frosted glass effect that fades out downward so it blends into page content */}
                 <div
                     className="absolute inset-0 backdrop-blur-3xl bg-black/50 pointer-events-none"
                     style={{ maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)" }}

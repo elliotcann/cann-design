@@ -42,6 +42,7 @@ export default function CollaboratePage() {
 
     const [openId, setOpenId] = useState<number | null>(null)
 
+    // Toggle: clicking an open item closes it; clicking a closed item opens it (and closes any other)
     const handleClick = (id: number) => {
         setOpenId(openId === id ? null : id)
     }
@@ -84,6 +85,8 @@ export default function CollaboratePage() {
                                     </div>
                                 </div>
 
+                                {/* CSS accordion: grid-rows-[0fr] collapses the row to 0 height, [1fr] expands it.
+                                    The inner div needs overflow-hidden to actually clip the content when collapsed. */}
                                 <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] mt-6' : 'grid-rows-[0fr]'}`}>
                                     <div className="overflow-hidden">
                                         <p className="text-white text-lg">

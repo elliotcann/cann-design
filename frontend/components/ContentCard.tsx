@@ -21,6 +21,7 @@ type ContentCardProps = {
 export default function ContentCard({ title, slug, mainImage, categories, href }: ContentCardProps) {
     return (
         <Link href={`${href}/${slug.current}`}>
+            {/* viewport={{ once: true }} means the fade-in animation only plays the first time the card enters view */}
             <motion.div
                 className="group cursor-pointer"
                 initial={{ opacity: 0, y: 30 }}
@@ -30,6 +31,7 @@ export default function ContentCard({ title, slug, mainImage, categories, href }
             >
                 <div className="relative aspect-7/5 overflow-hidden mb-2">
                     {mainImage && (
+                        // group-hover:scale-105 zooms the image when the parent div (group) is hovered
                         <Image
                             src={urlFor(mainImage).width(800).url()}
                             alt={title}

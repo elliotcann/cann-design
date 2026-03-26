@@ -51,6 +51,7 @@ export default function Home() {
               className="object-cover object-center"
               priority
             />
+            {/* Spacer that pushes content below the fixed header (h-24 matches header height) */}
             <div className="relative z-10 h-24"></div>
             <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-white mx-6 md:mx-12">
               <h2 className="text-base text-xl md:text-3xl font-bold  pb-4 md:pb-6">{content.heading}</h2>
