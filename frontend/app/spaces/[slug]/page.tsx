@@ -1,21 +1,11 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
-import { client } from '@/libs/sanity'
+import { useArticle } from '@/hooks/useArticle'
 import { spaceBySlugQuery } from '@/libs/queries'
-import ArticlePage, { ArticleData } from '@/components/ArticlePage'
+import ArticlePage from '@/components/ArticlePage'
 
 export default function SpacePage() {
-
-    const { slug } = useParams()
-    const [space, setSpace] = useState<ArticleData | null>(null)
-
-    useEffect(() => {
-        client.fetch(spaceBySlugQuery, { slug }).then(data => setSpace(data))
-    }, [slug])
-
-    if (!space) return null
-
-    return <ArticlePage article={space} />
+    const article = useArticle(spaceBySlugQuery)
+    if (!article) return null
+    return <ArticlePage article={article} />
 }
