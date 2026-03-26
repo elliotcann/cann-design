@@ -1,64 +1,62 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import BackToTop from "@/components/BackToTop";
+import { useState, useEffect, useRef } from "react"
+import { FiChevronUp } from "react-icons/fi"
+import { roundIconBtn } from "@/libs/styles"
 
 interface Props {
-  children: React.ReactNode[];
+    children: React.ReactNode[]
 }
 
+// Full-page scroll carousel. Traps wheel events and slides between sections.
 export default function SmoothScroller({ children }: Props) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const isScrolling = useRef(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const isScrolling = useRef(false)
+    const containerRef = useRef<HTMLDivElement>(null)
 
-  const goToSection = useCallback((index: number) => {
-    if (index < 0 || index >= children.length) return; // Don't go out of bounds
-    
-    setCurrentIndex(index);
-    isScrolling.current = true;
+    useEffect(() => {
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault()
+            if (isScrolling.current) return
 
-    // Unblock scrolling after animation completes
-    setTimeout(() => {
-      isScrolling.current = false;
-    }, 1000); // Must match transition duration below
-  }, [children.length]);
+            const next = currentIndex + (e.deltaY > 0 ? 1 : -1)
+            if (next < 0 || next >= children.length) return
 
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault(); // Stop default page scroll
+            setCurrentIndex(next)
+            isScrolling.current = true
+            // Unblock after the CSS transition completes — must match duration-1000 below
+            setTimeout(() => { isScrolling.current = false }, 1000)
+        }
 
-      if (isScrolling.current) return; // Block if already scrolling
+        const container = containerRef.current
+        container?.addEventListener("wheel", handleWheel, { passive: false })
+        return () => container?.removeEventListener("wheel", handleWheel)
+    }, [currentIndex, children.length])
 
-      if (e.deltaY > 0) {
-        goToSection(currentIndex + 1); // Scroll down
-      } else {
-        goToSection(currentIndex - 1); // Scroll up
-      }
-    };
+    const goToTop = () => {
+        setCurrentIndex(0)
+        isScrolling.current = true
+        setTimeout(() => { isScrolling.current = false }, 1000)
+    }
 
-    const container = containerRef.current;
-    container?.addEventListener("wheel", handleWheel, { passive: false });
+    return (
+        <div ref={containerRef} className="h-screen overflow-hidden">
+            <div
+                className="transition-transform duration-1000 ease-in-out"
+                style={{ transform: `translateY(-${currentIndex * 100}vh)` }}
+            >
+                {children}
+            </div>
 
-    return () => {
-      container?.removeEventListener("wheel", handleWheel);
-    };
-  }, [currentIndex, goToSection]);
-
-  return (
-    <div ref={containerRef} className="h-screen overflow-hidden">
-      <div
-        className="transition-transform duration-1000 ease-in-out"
-        style={{ transform: `translateY(-${currentIndex * 100}vh)` }}
-      >
-        {children}
-      </div>
-
-      <BackToTop
-        currentIndex={currentIndex}
-        onBackToTop={() => goToSection(0)}
-      />
-
-    </div>
-  );
+            {currentIndex > 0 && (
+                <button
+                    onClick={goToTop}
+                    className={`fixed z-50 right-6 bottom-6 cursor-pointer ${roundIconBtn}`}
+                    aria-label="Back to top"
+                >
+                    <FiChevronUp className="w-5 h-5" />
+                </button>
+            )}
+        </div>
+    )
 }
