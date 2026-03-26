@@ -51,6 +51,8 @@ export default function ProjectsPage() { // 👈 Remove "async" - no longer need
             <div className="h-24" />
             <div className="flex-1 px-6 py-4">
 
+                <h2 className="text-bold text-lg py-4">We create and develop our own places and spaces to share. You can use them to stay in, host events or for commercial photography and filming</h2>
+
                 <FilterButtons
                     categories={categories}
                     activeCategory={activeCategory}
