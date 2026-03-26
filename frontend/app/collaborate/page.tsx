@@ -63,7 +63,7 @@ export default function CollaboratePage() {
                         <motion.div
                             key={item.id}
                             onClick={() => handleClick(item.id)}
-                            className={`relative overflow-hidden cursor-pointer transition-[min-height] duration-500 ease-in-out bg-cover bg-center flex flex-col ${isOpen ? 'min-h-[500px]' : 'min-h-[120px]'}`}
+                            className={`relative overflow-hidden cursor-pointer transition-[min-height] duration-500 ease-in-out bg-cover bg-center flex flex-col ${isOpen ? 'min-h-[400px]' : 'min-h-[120px]'}`}
                             style={{ backgroundImage: `url(${item.image})` }}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function CollaboratePage() {
 
                                 <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] mt-6' : 'grid-rows-[0fr]'}`}>
                                     <div className="overflow-hidden">
-                                        <p className="text-white">
+                                        <p className="text-white text-lg">
                                             {item.body}
                                         </p>
                                     </div>
