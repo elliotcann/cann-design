@@ -38,7 +38,7 @@ export default function About() {
                 <div key={index} className="flex flex-col">
 
                     {/* IMAGE — responsive height */}
-                    <div className="relative w-full h-[70vw] md:h-[80vh]">
+                    <div className="relative w-full h-[70vw] md:h-[70vh]">
                         <Image
                             src={section.image}
                             alt={section.alt}
