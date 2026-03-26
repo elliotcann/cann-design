@@ -39,7 +39,7 @@ export default function ArticlePage({ article }: { article: ArticleData }) {
         <main className="min-h-screen flex flex-col">
 
             {article.mainImage && (
-                <div className="relative w-full aspect-7/5">
+                <div className="relative w-full h-screen">
                     <Image
                         src={urlFor(article.mainImage).width(1600).url()}
                         alt={article.title}
@@ -54,7 +54,7 @@ export default function ArticlePage({ article }: { article: ArticleData }) {
                 <div>
                     <h1 className="text-5xl font-bold mb-4">{article.title}</h1>
                     {article.excerpt && (
-                        <div className="prose prose-lg max-w-none">
+                        <div className="prose prose-2xl max-w-none">
                             <p>{article.excerpt}</p>
                         </div>
                     )}
@@ -72,9 +72,6 @@ export default function ArticlePage({ article }: { article: ArticleData }) {
                                         className="object-cover"
                                     />
                                 </div>
-                                {img.caption && (
-                                    <p className="text-sm text-gray-400">{img.caption}</p>
-                                )}
                             </div>
                         ))}
                     </div>
