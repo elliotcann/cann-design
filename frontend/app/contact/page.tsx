@@ -3,6 +3,7 @@ import { MdEmail } from 'react-icons/md'
 import { FaPinterestP } from 'react-icons/fa'
 import { FiInstagram } from 'react-icons/fi'
 import Footer from '@/components/Footer'
+import { pillBtn } from '@/libs/styles'
 
 const contacts = [
     {
@@ -52,7 +53,7 @@ export default function ContactPage() {
                                 href={href}
                                 target={href.startsWith('mailto') ? undefined : '_blank'}
                                 rel="noreferrer"
-                                className="bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-flex items-center gap-2 border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75"
+                                className={`${pillBtn} inline-flex items-center gap-2`}
                             >
                                 <Icon size={16} />
                                 {label}

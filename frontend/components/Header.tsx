@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FaPinterestP } from 'react-icons/fa'
 import { FiMenu, FiX, FiInstagram } from 'react-icons/fi'
+import { roundIconBtn } from '@/libs/styles'
 
 export default function Header() {
     const pathname = usePathname()
@@ -37,7 +38,8 @@ export default function Header() {
         { href: '/contact', label: 'Contact' },
     ]
 
-    const roundButtonClass = "bg-black text-white p-2 rounded-full border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75"
+    // Nav link base — active/inactive colours applied per link
+    const navLink = "text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block transition-all duration-300 ease-in-out border-2 border-black"
 
     return (
     
@@ -70,11 +72,7 @@ export default function Header() {
                                 <Link
                                     href={link.href}
                                     onClick={toggleMenu}
-                                    className={`text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block transition-all duration-300 ease-in-out border-2 border-black
-                                    ${pathname === link.href
-                                        ? "bg-white text-black"           // ← ACTIVE state
-                                        : "bg-black text-white hover:opacity-75" // ← DEFAULT state
-                                    }`}
+                                    className={`${navLink} ${pathname === link.href ? "bg-white text-black" : "bg-black text-white hover:opacity-75"}`}
                                 >
                                     {link.label}
                                 </Link>
@@ -87,14 +85,14 @@ export default function Header() {
                         <a
                             href="https://www.instagram.com/cann.design/"
                             target="_blank"
-                            className={roundButtonClass}
+                            className={roundIconBtn}
                         >
                             <FiInstagram className="w-5 h-5"/>
                         </a>
                         <a
                             href="https://uk.pinterest.com/cann_design/"
                             target="_blank"
-                            className={roundButtonClass}
+                            className={roundIconBtn}
                         >
                             <FaPinterestP className="w-5 h-5"/>
                         </a>
@@ -139,14 +137,14 @@ export default function Header() {
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
-                                    className={roundButtonClass}
+                                    className={roundIconBtn}
                                 >
                                     <FiInstagram className="w-5 h-5"/>
                                 </a>
                                 <a
                                     href="https://uk.pinterest.com/cann_design/"
                                     target="_blank"
-                                    className={roundButtonClass}
+                                    className={roundIconBtn}
                                 >
                                     <FaPinterestP className="w-5 h-5"/>
                                 </a>

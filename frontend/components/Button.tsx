@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from "next/link"
+import { pillBtn } from "@/libs/styles"
 
 
 // Define the props this components accepts. "Props" are the settings we pass in when using the component
@@ -14,7 +15,7 @@ export default function Button({ href, label, onClick }: ButtonProps) {
         <Link
             href={href}
             onClick={onClick}
-            className="bg-black text-white text-sm tracking-wide font-bold py-2 px-4 rounded-full inline-block border-2 border-black transition-all duration-300 ease-in-out hover:opacity-75"
+            className={`${pillBtn} inline-block`}
         >
             {label}
         </Link>
