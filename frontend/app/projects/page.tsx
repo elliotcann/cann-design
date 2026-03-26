@@ -1,50 +1,15 @@
-"use client" // 👈 ADD THIS - makes the whole page interactive
+'use client'
 
-import { useState, useEffect } from 'react' // 👈 ADD useEffect too
-import { client } from '@/libs/sanity'
+import { useCollectionPage } from '@/hooks/useCollectionPage'
 import { projectsQuery, categoriesQuery } from '@/libs/queries'
 import ContentCard from '@/components/ContentCard'
 import FilterButtons from '@/components/FilterButtons'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 
-type Category = {
-    _id: string
-    title: string
-    slug: { current: string }
-}
+export default function ProjectsPage() {
 
-type Project = {
-    _id: string
-    title: string
-    slug: { current: string }
-    mainImage: any
-    publishedAt: string
-    excerpt: string
-    categories: Category[]
-}
-
-export default function ProjectsPage() { // 👈 Remove "async" - no longer needed
-
-    // Remember which category is selected. null = "All"
-    const [activeCategory, setActiveCategory] = useState<string | null>(null)
-
-    // Store the data we fetch from Sanity
-    const [projects, setProjects] = useState<Project[]>([])
-    const [categories, setCategories] = useState<Category[]>([])
-
-    // Fetch data when the page loads
-    useEffect(() => {
-        client.fetch(projectsQuery).then(data => setProjects(data))
-        client.fetch(categoriesQuery).then(data => setCategories(data))
-    }, [])
-
-    // Which projects to show? If nothing selected, show all. Otherwise filter.
-    const visibleProjects = activeCategory
-        ? projects.filter(project =>
-            project.categories?.some(cat => cat._id === activeCategory)
-          )
-        : projects
+    const { items, categories, activeCategory, setActiveCategory } = useCollectionPage(projectsQuery, categoriesQuery)
 
     return (
         <main className="min-h-screen flex flex-col">
@@ -59,10 +24,9 @@ export default function ProjectsPage() { // 👈 Remove "async" - no longer need
                     onChange={setActiveCategory}
                 />
 
-                {/* PROJECTS GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {visibleProjects.map((project) => (
-                        <ContentCard key={project._id} {...project} href="/projects" />
+                    {items.map((item) => (
+                        <ContentCard key={item._id} {...item} href="/projects" />
                     ))}
                 </div>
 
