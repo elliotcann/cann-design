@@ -136,7 +136,7 @@ export default function Header() {
                             {/* Mobile Nav Social links - shown/hidden based on state*/}
                             <div className="lg:hidden flex justify-start gap-4">
                                 <a
-                                    href="https://uk.pinterest.com/cann_design/"
+                                    href="https://www.instagram.com/cann.design/"
                                     target="_blank"
                                     className={roundIconBtn}
                                 >

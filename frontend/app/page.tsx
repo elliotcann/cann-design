@@ -22,14 +22,14 @@ const homeContent = [
     heading: 'Rent Our Spaces',
     para: 'We create and develop our own places and spaces to share. You can use them to stay in, host events or for commercial photography and filming',
     button: 'Explore them here',
-    href: '/rent',
+    href: '/spaces',
     background: '/home-3.jpg',
   },
   { 
     heading: 'We Teach',
     para: 'We are keen knowledge sharers and collaborate across UK architecture schools through academic design studio mentoring and workshops.',
     button: 'Explore our teaching work here',
-    href: '/teach',
+    href: '/education',
     background: '/home-4.jpg',
   },
 
