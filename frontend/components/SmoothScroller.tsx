@@ -13,24 +13,45 @@ export default function SmoothScroller({ children }: Props) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const isScrolling = useRef(false)
     const containerRef = useRef<HTMLDivElement>(null)
+    const touchStartY = useRef<number | null>(null)
 
     useEffect(() => {
-        const handleWheel = (e: WheelEvent) => {
-            e.preventDefault()
+        const navigate = (direction: 1 | -1) => {
             if (isScrolling.current) return
-
-            const next = currentIndex + (e.deltaY > 0 ? 1 : -1)
+            const next = currentIndex + direction
             if (next < 0 || next >= children.length) return
-
             setCurrentIndex(next)
             isScrolling.current = true
-            // Unblock after the CSS transition completes — must match duration-1000 below
             setTimeout(() => { isScrolling.current = false }, 1000)
+        }
+
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault()
+            navigate(e.deltaY > 0 ? 1 : -1)
+        }
+
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStartY.current = e.touches[0].clientY
+        }
+
+        const handleTouchEnd = (e: TouchEvent) => {
+            if (touchStartY.current === null) return
+            const delta = touchStartY.current - e.changedTouches[0].clientY
+            // Require a minimum 50px swipe to trigger
+            if (Math.abs(delta) < 50) return
+            navigate(delta > 0 ? 1 : -1)
+            touchStartY.current = null
         }
 
         const container = containerRef.current
         container?.addEventListener("wheel", handleWheel, { passive: false })
-        return () => container?.removeEventListener("wheel", handleWheel)
+        container?.addEventListener("touchstart", handleTouchStart, { passive: true })
+        container?.addEventListener("touchend", handleTouchEnd, { passive: true })
+        return () => {
+            container?.removeEventListener("wheel", handleWheel)
+            container?.removeEventListener("touchstart", handleTouchStart)
+            container?.removeEventListener("touchend", handleTouchEnd)
+        }
     }, [currentIndex, children.length])
 
     const goToTop = () => {
